@@ -1,0 +1,1 @@
+window.__BIRTHDAY_PHOTOS__=Object.assign(window.__BIRTHDAY_PHOTOS__||{}, {"p04":"assets/photos/p04.webp","p05":"assets/photos/p05.webp","p06":"assets/photos/p06.webp"});
