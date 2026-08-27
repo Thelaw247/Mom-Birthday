@@ -1,0 +1,1 @@
+(()=>{const r=new XMLHttpRequest();r.open('GET','assets/social.jpg.b64',false);r.send(null);window.__SOCIAL_IMAGE_DATA__='data:image/jpeg;base64,'+r.responseText.trim();})();
