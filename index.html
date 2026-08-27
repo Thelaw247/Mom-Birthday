@@ -1,1 +1,143 @@
-__FROM_LOCAL__
+<!DOCTYPE html>
+<html lang="af">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090b1a" />
+  <meta name="description" content="38 Jaar van Jou â€” â€™n verjaarsdaggeskenk vir Ma." />
+  <title>38 Jaar van Jou â€” Vir Ma</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pride.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="aurora aurora-a" aria-hidden="true"></div>
+  <div class="aurora aurora-b" aria-hidden="true"></div>
+  <div id="stars" class="stars" aria-hidden="true"></div>
+
+  <main>
+    <section id="intro" class="screen intro-screen active" aria-labelledby="intro-title">
+      <div class="intro-inner">
+        <p class="kicker reveal-now">26 Augustus 1988</p>
+        <h1 id="intro-title" class="display-title">Iets belangriks<br><span>het vandag begin.</span></h1>
+        <p class="intro-copy">Voor ons aangaan, moet ons net eers â€™n paar feite vasstel.</p>
+        <button id="startQuiz" class="primary-btn">Begin die baie wetenskaplike toets <span>â†’</span></button>
+      </div>
+    </section>
+
+    <section id="quiz" class="screen quiz-screen" aria-live="polite">
+      <div class="quiz-shell glass-card">
+        <div class="quiz-topline">
+          <span id="questionCounter">Vraag 1 van 10</span>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+        <div class="quiz-content">
+          <p class="tiny-label">Mamma se amptelike verjaarsdagtoets</p>
+          <h2 id="questionText">Hardwerkend Ã©n nogal ongelooflik?</h2>
+          <div id="answerZone" class="answer-zone">
+            <button id="yesBtn" class="answer-btn yes-btn">Ek is</button>
+            <button id="noBtn" class="answer-btn no-btn" aria-label="Ek is nie â€” maar hierdie knoppie gaan nie saamwerk nie">Ek is nie</button>
+          </div>
+          <p id="noMessage" class="no-message" aria-hidden="true"></p>
+        </div>
+      </div>
+
+      <div id="evidenceCard" class="evidence-card glass-card" aria-hidden="true">
+        <span id="evidenceTitle" class="evidence-label">Bewysstuk 01</span>
+        <p id="evidenceText"></p>
+        <button id="nextQuestion" class="text-btn">Volgende feit <span>â†’</span></button>
+      </div>
+    </section>
+
+    <section id="quizComplete" class="screen complete-screen">
+      <div class="complete-inner">
+        <span class="score-orbit">10 / 10</span>
+        <h2>Ons het dit bevestig.</h2>
+        <p>Dit blyk jy is eintlik nog meer ongelooflik as wat die toets kon meet.</p>
+        <button id="enterMemoryLane" class="primary-btn">Wys my die bewyse <span>â†“</span></button>
+      </div>
+    </section>
+
+    <section id="memoryLane" class="memory-lane" hidden>
+      <header class="hero-memory section-pad">
+        <div class="hero-copy scroll-reveal">
+          <p class="kicker">38 jaar van jou</p>
+          <h2>Hierdie een is vir <span>jou</span>, Mamma.</h2>
+          <p>Nie â€™n lys van prestasies nie. Nie â€™n perfekte storie nie. Net â€™n klomp oomblikke wat saam een ding sÃª: ons sien jou.</p>
+        </div>
+        <div class="hero-photo-stack" aria-label="Plek vir gunsteling familie-foto's">
+          <div class="photo-card photo-a placeholder-card"><span>Jou gunsteling foto hier</span></div>
+          <div class="photo-card photo-b placeholder-card"><span>â€™n Familie-oomblik</span></div>
+          <div class="photo-card photo-c placeholder-card"><span>Ma deur die jare</span></div>
+        </div>
+      </header>
+
+      <section class="chapter section-pad" data-chapter="0">
+        <div class="chapter-copy scroll-reveal">
+          <p class="chapter-eyebrow">Hoofstuk 01</p>
+          <h3>Voor ons almal</h3>
+          <p>Voor jy iemand se Ma was, was jy net jy. â€™n Hele mens met jou eie drome, grappies, vrese, planne en stories.</p>
+        </div>
+        <div class="year-stage scroll-reveal">
+          <span class="year">1988</span>
+          <span class="year-note">Die storie begin.</span>
+        </div>
+      </section>
+
+      <section class="family-constellation section-pad">
+        <div class="section-heading scroll-reveal">
+          <p class="chapter-eyebrow">Hoofstuk 02</p>
+          <h3>Toe word ons vier.</h3>
+          <p>Vier verskillende lewens. Een Ma wat op een of ander manier altyd die middelpunt bly.</p>
+        </div>
+        <div class="constellation-wrap scroll-reveal" id="constellation">
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+          <button class="family-node mom-node" data-person="Ma">Ma</button>
+          <button class="family-node child-node node-1" data-person="Jy">Jy</button>
+          <button class="family-node child-node node-2" data-person="Joshua">Joshua</button>
+          <button class="family-node child-node node-3" data-person="Caleb">Caleb</button>
+          <button class="family-node child-node node-4" data-person="Richter">Richter</button>
+          <div id="constellationCaption" class="constellation-caption">Die middelpunt van ons klein heelal.</div>
+        </div>
+      </section>
+
+      <section class="migration section-pad">
+        <div class="section-heading scroll-reveal">
+          <p class="chapter-eyebrow">Hoofstuk 03</p>
+          <h3>Toe trek ons hele lewe oor â€™n oseaan.</h3>
+        </div>
+        <div class="journey-card glass-card scroll-reveal">
+          <div class="journey-labels">
+            <div><strong>Suid-Afrika</strong><span>Alles wat bekend was.</span></div>
+            <div class="journey-year">2020</div>
+            <div class="right"><strong>Kanada</strong><span>â€™n Nuwe begin.</span></div>
+          </div>
+          <div class="journey-line"><div class="journey-flight" id="journeyFlight">âœ¦</div></div>
+          <p>Dit was nie net â€™n vlug op â€™n kaart nie. Dit was â€™n hele lewe wat opgetel, gedra en weer neergesit moes word.</p>
+        </div>
+      </section>
+
+      <section class="casefile-section section-pad">
+        <div class="casefile-wrap glass-card scroll-reveal">
+          <div class="casefile-topline"><span>SAKELÃŠER 001</span><span>STATUS: OU NUUS</span></div>
+          <p class="chapter-eyebrow">Mamma was blykbaar nog altyd so</p>
+          <h3>Die melk-dief ondersoek.</h3>
+          <div class="casefile-grid">
+            <div><small>Ondersoeker</small><strong>Dorothy</strong></div>
+            <div><small>Voertuig</small><strong>Quad</strong></div>
+            <div><small>Verdagtes</small><strong>Melkdiewe op die plaas</strong></div>
+            <div><small>Motief</small><strong>â€œDis nie reg nie.â€</strong></div>
+          </div>
+          <p class="casefile-copy">Lank voor die droom van die RCMP en speurwerk, het jy klaar rondgery en probeer uitvind wie die melk steel. Party mense verander baie soos hulle grootword. Jy het blykbaar net meer amptelike planne gekry.</p>
+          <p class="casefile-end">Reg is reg. Verkeerd is verkeerd. En jy het nog altyd iets daaroor gedoen.</p>
+        </div>
+      </section>
+
+      <section class="unseen-work section-pad">
+        <div class="section-heading scroll-reveal">
+          <p class="chapter-eyebrow">Hoofstuk 04</p>
+          <h3>Die werk wat niemand altyd sien nie.</h3>
+        </div>
+        <div class="role-stack scroll-reveal" id="roleStack">
+          <span>Ma</span><span>Harde werker</span><span>Familie-taxi</span²È="25Ğ¹½œ••¸‘¥¹œ°5…µµ„¸ğ½ Èø(€€€€€€ñ‘¥Ø¥ô‰±•ÑÑ•É	½‘äˆ±…ÍÌô‰±•ÑÑ•Èµ‰½‘äˆøğ½‘¥Øø(€€€€€€ñÀ±…ÍÌô‰Í¥¹…ÑÕÉ”ˆù1¥•™‘”°ñ‰ÈøñÍÑÉ½¹œù©½Ô½Õ‘ÍÑ”ğ½ÍÑÉ½¹œøğ½Àø(€€€€ğ½‘¥Øø(€€ğ½‘¥…±½œø((€€ñÍÉ¥ÁĞ¥ô‰Í¥Ñ”µ½¹Ñ•¹ĞˆÑåÁ”ô‰…ÁÁ±¥…Ñ¥½¸½©Í½¸ˆùì‰Í¥Ñ”ˆéì‰Ñ¥Ñ±”ˆèˆÌà)……ÈÙ…¸)½Ôˆ°‰ÍÕ‰Ñ¥Ñ±”ˆè‰Y¥È5…µµ„ƒŠP€ÈØÕÕÍÑÕÌ€ÈÀÈØˆ°‰‰¥ÉÑ¡‘…äˆèˆÄäàà´Àà´ÈØˆ°‰…”ˆèÌáô°‰ÅÕ•ÍÑ¥½¹Ìˆémì‰ÅÕ•ÍÑ¥½¸ˆè‰!…É‘İ•É­•¹ƒ¥¸¹½…°½¹•±½½™±¥¬üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÄˆ°‰•Ù¥‘•¹”ˆè‰=¹Ì¡•Ğ¥¸€ÈÀÈÀÙ…¸MÕ¥µ™É¥­„¹„-…¹…‘„•ÑÉ•¬¸)ä¡•Ğ¹¥”¹•ĞÍ……µ•ÑÉ•¬¹¥”ƒŠP©ä¡•ĞÍ……´µ•Ğ½¹ÌÙ…¸Ù½½È…˜‰•¥¸¸)ä¡•Ğ•İ•É¬°Á±…¸•µ……¬°……¹•¡½Ô•¸Í•­•È•µ……¬½¹ÌÙ½•°Ù•¥±¥œ°Í•±™ÌÑ½”…±±•Ì½´½¹Ì¹ÕÕĞİ…Ì¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğ…±ÑåÙ¥Èµä­¥¹‘•ÉÌ½Á‘……œƒŠPÍ•±™Ìİ…¹¹••È•¬µ½•œ¥Ìüˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÈˆ°‰•Ù¥‘•¹”ˆè‰Y¥È•±˜©……È¡•Ğ”]•Ğ•ÍÑ½•¤¸)ä¡•Ğ¡½´•É••±ƒŠe¸ÕÕÈÍÑ…Ñ½”•Éä½´‘É¥”½˜Ù¥•È­••ÈƒŠe¸İ••¬Ñ”……¸½•™•¸°•¸©äİ…Ì‘……ÈÙ¥È‘¥”­½µÁ•Ñ¥Í¥•Ì¸5•ĞI¥¡Ñ•ÈÍ”¡½­­¥”İ…Ì©ä‘……È¸5•Ğ)½Í¡Õ„•¸…±•ˆÏŠe¸½½¬¸9½Ô‰•¥¸©äİ••ÈÍ½½ÉÑ•±å­”É¥ÑÑ”Ù¥È‘¥”Ñİ••±¥¹œ‘½•¸¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰¥”••¸İ…Ğ¡¥•É‘¥”¡•±”™…µ¥±¥”½À••¸½˜…¹‘•Èµ…¹¥•È……¸‘¥”…¹œ¡½Ôüˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÌˆ°‰•Ù¥‘•¹”ˆè‰Y¥•È­¥¹‘•ÉÌ¸Y¥•ÈÁ•ÉÍ½½¹±¥­¡•‘”¸Y¥•ÈÍÑ•±±”Á±…¹¹”¸¸••¸5„İ…Ğ½À••¸½˜…¹‘•Èµ…¹¥•È…±Ñåİ••Ğİ¥”İ……Èµ½•Ğİ••Ì°İ…ĞÙ½±•¹‘”•‰•ÕÈ°•¸İ¥”‘…±¬¹•ĞƒŠe¸‰¥•Ñ©¥”•­ÍÑÉ„½¹‘•ÉÍÑ•Õ¹¥¹œ¹½‘¥œ¡•Ğ¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰…ÁÁ•È•¹½•œ½´µä¡•±”±•İ”½½ÈƒŠe¸½Í•……¸Ñ”Í­Õ¥˜•¸Ù…¸Ù½½È…˜Ñ”‰•¥¸üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀĞˆ°‰•Ù¥‘•¹”ˆè‰MÕ¥µ™É¥­„İ…Ì‰•­•¹¸-…¹…‘„İ…ÌƒŠe¸¹Õİ”‰•¥¸¸)ä¡•Ğ‰…¥”Ù…¸‘¥”½¹Í•­•É¡•¥½À©½ÔÍ­½Õ•ÉÌ•‘É„Í½¹‘•È½´‘¥Ğ½¹ÌÏŠe¸Ñ”µ……¬¸)ä¡•Ğ•¡•±À½´ƒŠe¸¹Õİ”±•İ”¡¥•Èµ½½¹Ñ±¥¬Ñ”µ……¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğ½µÑÉ•¹Ğ•¹¥¥•ÑÌÙ¥Èµä­¥¹‘•ÉÌÍ…°‘½•¸üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÔˆ°‰•Ù¥‘•¹”ˆè‰……È¥Ì‘¥”É½½Ğ½Á½™™•É¥¹Ìİ…Ğ…±µ…°Í¥•¸ƒŠP•¸‘…¸‘¥”¡½¹‘•É‘”­±•¥¹Ñ©¥•Ìİ…Ğµ…­±¥¬Ù•É••Ğİ½É¸¥”Éå•Éä¸¥”İ…Ñå¸¥”­½Ì¸¥”­±•É”¸¥”±Õ¥ÍÑ•È¸¥”Á±…¸µ……¬¸¥”ƒŠa•¬Í…°‘¥ĞÕ¥ÑÍ½ÉÓŠd¸=¹Ì½¹Ñ¡½Ôµ••È‘……ÉÙ…¸…Ìİ…Ğ©ä‘¥¹¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰µÁ…Ñ¥•Ì°Í…•……É•¸¥•µ…¹İ…ĞÉ•Ñ¥œ½µ•”½½Èµ•¹Í”üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀØˆ°‰•Ù¥‘•¹”ˆè‰)äÙ½•°Í……´µ•Ğµ•¹Í”¸)ä±Õ¥ÍÑ•È¸)äÙ…Ğ…¹‘•Èµ•¹Í”Í”‰•­½µµ•É¹¥ÍÍ”Í½µÌÍ……´¡Õ¥ÌÑ½”¸)äÁÉ½‰••ÈÙ•ÉÍÑ……¸Ù½½É‘…Ğ©ä½½É‘••°¸¥Ì••¸Ù…¸‘¥”‘¥¹”İ…Ğ½¹Ì‰ä©½Ô•±••È¡•ĞÍ½¹‘•È‘…Ğ©ä½½¥Ğ‘……ÉÙ…¸ƒŠe¸±•Ì¡½•˜Ñ”µ……¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğµ••ÈÙ¥È¡¥•É‘¥”™…µ¥±¥”½Á•½™™•È¡•Ğ…Ìİ…Ğ•¬Í•±˜‰•Í•˜üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÜˆ°‰•Ù¥‘•¹”ˆè‰=¹ÌÍ¥•¸µ••È…Ì¹•Ğ‘¥”ÕÉ”İ…Ğ©äİ•É¬¸=¹ÌÍ¥•¸©½Ô¡…¹‘”¸=¹ÌÍ¥•¸‘¥”½¹•µ…¬•¸‘¥”‘¥¹”İ……Éµ•”©äÍ……µ±••˜¸=¹ÌÍ¥•¸‘…Ğ©äµ½•¥±¥­”‘¥¹”Ù¥È½¹Ì‘½•¸°•¸‘…¸ÍÑ••‘Ì¡Õ¥ÌÑ½”­½´•¸½¹Ìµ•Ğ±¥•™‘”°•‘Õ±•¸­…±µÑ”‰•¡…¹‘•°¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰MÑ•É­•È…Ìİ…Ğ•¬µåÍ•±˜­É•‘¥•ĞÙ½½È•”üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€Ààˆ°‰•Ù¥‘•¹”ˆè‰]…¹¹••È‘¥¹”Í­••™±½½À°¥Ì©ä•İ½½¹±¥¬‘¥”••¸İ…Ğ¹¥”½½ÉÉ•…­Í¥”Ñ½½¸¹¥”¸)ä‘¥¹¬¸)ä­å¬İ…Ğ•‘½•¸µ½•Ğİ½É¸¸‘…¸‘½•¸©ä‘¥Ğ¸)ä¡•ĞÙ¥È½¹Ì•İåÌ‘…Ğ­…±µÑ”½½¬ƒŠe¸Ù½É´Ù…¸­É…œ¥Ì¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğ­¥¹‘•ÉÌÉ½½Ñ•µ……¬¡•Ğİ…Ğ•É••¥Ì½´¡Õ°•¥”Á…Ñ”‰•¥¸ÍÑ…Àüˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€Àäˆ°‰•Ù¥‘•¹”ˆè‰5……¹‘…œ‰•¥¸”]•Ğ•±•­ÑÉ¥•Í”¥¹•¹¥•ÕÉÍİ•Í”¸I¥¡Ñ•È°)½Í¡Õ„•¸…±•ˆ¡•Ğ¹½œ¡Õ°•¥”Á……¥”Ù½½È¡Õ±±”¸)ä¡•Ğ½¹Ì¹¥”¹•Ğ‰•Í­•É´¹¥”ì©ä¡•Ğ½¹Ì•±••È½´É•œÑ”‘½•¸°µ•¹Í”Ñ”É•ÍÁ•­Ñ••È•¸……¸Ñ”¡½Ôİ…¹¹••È‘¥¹”µ½•¥±¥¬É……¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰	•±…±¥¬°½½Éİ•±‘¥•¹‰…¥”±¥•™•£¨üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÄÀˆ°‰•Ù¥‘•¹”ˆè‰)„¸•ÕÈÙ¥•È­¥¹‘•ÉÌ¸•ÕÈƒŠe¸™…µ¥±¥”İ…Ğ…¹‘•ÉÌÍ½Ô±å¬Í½¹‘•È©½Ô‘……É¥¸¸¸‘•ÕÈ©½Ô½Õ‘ÍÑ”İ…ĞÙ…¹‘…œ¹•ĞÍ•­•Èİ¥°µ……¬©äİ••Ğè½¹ÌÍ¥•¸©½Ô¸=¹Ìİ……É‘••È©½Ô¸¸½¹Ì¥ÌÙ•ÉÍ­É¥­±¥¬±¥•˜Ù¥È©½Ô¸‰õt°‰¡…ÁÑ•ÉÌˆémì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÄˆ°‰Ñ¥Ñ±”ˆè‰Y½½È½¹Ì…±µ…°ˆ°‰‰½‘äˆè‰Y½½È©ä¥•µ…¹Í”5…µµ„İ…Ì°İ…Ì©ä¹•Ğ©ä¸ƒŠe¸!•±”µ•¹Ìµ•Ğ©½Ô•¥”‘É½µ”°É…ÁÁ¥•Ì°ÙÉ•Í”°Á±…¹¹”•¸ÍÑ½É¥•Ì¸!¥•É‘¥”‘…œ¡•Ğ¥¸€Ääàà‰•¥¸ƒŠP±…¹¬Ù½½É‘…Ğ½¹Ì•İ••Ğ¡•Ğ¡½”•±Õ­­¥œ½¹Ì••¹‘…œÍ½Ôİ••Ì½´©½ÔÑ”£¨¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÈˆ°‰Ñ¥Ñ±”ˆè‰Q½”İ½É½¹ÌÙ¥•Èˆ°‰‰½‘äˆè‰Y¥•È­¥¹‘•ÉÌ‰•Ñ•­•¸Ù¥•È±•İ•¹Ìİ…Ğ…±µ…°•±å¬•‰•ÕÈ¸)½Í¡Õ„¸…±•ˆ¸I¥¡Ñ•È¸¸•¬¸Y•ÉÍ­¥±±•¹‘”‘¥¹”°Ù•ÉÍ­¥±±•¹‘”Ñå”°Ù•ÉÍ­¥±±•¹‘”‰•¡½•™Ñ•ÌƒŠPµ……È‘¥•Í•±™‘”Ù•¥±¥”Á±•¬½´Ñ•ÉÕœÑ”­½´¹„Ñ½”è5…µµ„¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÌˆ°‰Ñ¥Ñ±”ˆè‰=½ÈƒŠe¸½Í•……¸ˆ°‰‰½‘äˆè‰%¸€ÈÀÈÀ¡•Ğ½¹ÌMÕ¥µ™É¥­„…Ñ•É•±……Ğ•¸-…¹…‘„½¹Ì¹Õİ”ÑÕ¥ÍÑ”•µ……¬¸¥Ğİ…Ì¹¥”¹•ĞƒŠe¸Ù±Õœ½ÀƒŠe¸­……ÉĞ¹¥”¸¥Ğİ…ÌƒŠe¸¡•±”±•İ”İ…Ğ½Á•Ñ•°°•‘É„•¸Ù…¸Ù½½È…˜•‰½Ôµ½•Ìİ½É¸)ä¡•Ğ•¡•±À½´‘¥ĞÙ¥È½¹Ìµ½½¹Ñ±¥¬Ñ”µ……¬¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀĞˆ°‰Ñ¥Ñ±”ˆè‰¥”İ•É¬İ…Ğ¹¥•µ…¹…±ÑåÍ¥•¸¹¥”ˆ°‰‰½‘äˆè‰¥”ÕÉ”‰ä‘¥”İ•É¬¥Ì¹•Ğ‘¥”‘••°İ…ĞƒŠe¸µ•¹Ì½ÀƒŠe¸­±½¬­…¸Í¥•¸¸¥”É•ÌƒŠP½¹Ñ¡½Ô°É§­°°±Õ¥ÍÑ•È°Éä°‰•­½µµ•È°½¹‘•ÉÍÑ•Õ¸•¸İ••ÈÁÉ½‰••ÈƒŠP¡•Ğ¹½½¥ĞƒŠe¸Ñå‘­……ÉĞ•¡…¹¥”¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÔˆ°‰Ñ¥Ñ±”ˆè‰)ä¡•Ğ½Á•‘……œˆ°‰‰½‘äˆè‰	äÍÁ½ÉĞ¸	äÍ­½½°¸=À‘¥”‘…”İ…¹¹••È½¹Ì¥•ÑÌÉ••­Éä¡•Ğ•¸½À‘¥”‘…”İ…¹¹••È½¹Ì¹¥”¡•Ğ¹¥”¸)ä¡•Ğ¹¥”¹•ĞÙ…¸½¹Ì±•İ•¹Ì•İ••Ğ¹¥”¸)äİ…Ì‘••°‘……ÉÙ…¸¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀØˆ°‰Ñ¥Ñ±”ˆè‰¸¹½Ô°5……¹‘…œˆ°‰‰½‘äˆè‰Y¥È©…É”¡•Ğ©äÍ•­•È•µ……¬•¬­½´İ……È•¬µ½•Ğİ••ÌƒŠPÍ•±™ÌÑ½”‘¥ĞƒŠe¸ÕÕÈÍ”ÉäÍÑ…Ñ½”‰•Ñ•­•¸Ù¥ÈÍÑ½•¤¸9½Ô‰•¥¸•¬•±•­ÑÉ¥•Í”¥¹•¹¥•ÕÉÍİ•Í”¸¥ÌµäÙ½±•¹‘”¡½½™ÍÑÕ¬°µ……È‰…¥”Ù…¸İ…Ğ•¬Í……µÙ…Ğ°­½´Ù…¸©½Ô…˜¸‰õt°‰±•ÑÑ•Èˆéì‰Ñ¥Ñ±”ˆè‰9•Ğ¹½œ••¸‘¥¹œ°5…µµ„¸ˆ°‰‰½‘äˆél‰¬Ï¨‘¥ĞÍ•­•È¹¥”…±Ñå½•¹¥”°•¸‰•Í±¥Ì¹¥”•¹½•œ¹¥”¸5……ÈÙ…¹‘…œİ¥°•¬£¨©äµ½•Ğİ••Ğè½¹ÌÍ¥•¸©½Ô¸9¥”¹•Ğ‘¥”É½½Ğ‘¥¹”¹¥”¸=¹ÌÍ¥•¸½½¬‘¥”½¹•µ…¬°‘¥”µ½•¡•¥•¸‘¥”‘¥¹”İ……Éµ•”©äµ……ÈÍÑ¥±İ•œÍ……µ±••˜½µ‘…Ğ©ä±¥•˜¥ÌÙ¥È½¹Ì¸ˆ°‰=¹ÌÍ¥•¸¡½”¡…É©äİ•É¬¸=¹ÌÍ¥•¸©½Ô¡…¹‘”İ…Ğ‰•¥¸İåÌ¡½•Ù••°©…É”©ä…°…Ì¡……É­…ÁÁ•Èİ•É¬¸=¹ÌÍ¥•¸‘…Ğ©äÍÑ••‘Ì•±­”‘…œ……¹……¸¸¸İ…Ğµä‘¥”µ••ÍÑ”ÑÉ•˜°¥Ì‘…Ğ©ä¹¥”¡Õ¥ÌÑ½”­½´•¸‘¥Ğ½À½¹ÌÕ¥Ñ¡……°¹¥”¸)ä‰±ä5…µµ„¸)ä‰±ä­…±´¸)ä±Õ¥ÍÑ•È¸)ä¡•±À¸)ä‰•¡…¹‘•°½¹Ì½•¸ˆ°‰¬‘¥¹¬……¸…°‘¥”É¥ÑÑ”ÍÑ…Ñ½”Ù¥ÈÍÑ½•¤ƒŠPƒŠe¸ÕÕÈÍ½½¹Ñ½”°ƒŠe¸ÕÕÈÑ•ÉÕœ°‘É¥”½˜Ù¥•È­••ÈƒŠe¸İ••¬¸±˜©……È±…¹¬İ…Ì©ä‘……È¸)äİ…Ì‘……ÈÙ¥ÈI¥¡Ñ•ÈÍ”¡½­­¥”¸Y¥È)½Í¡Õ„•¸…±•ˆÏŠe¸¸¸¹½Ô‰•¥¸©äİ••ÈÙ…¸‘……É‘¥”É¥ÑÑ”Ù¥È‘¥”Ñİ••±¥¹œ‘½•¸¸=¹Ìİ••Ğ‘……É‘¥”ÕÉ”¡•Ğ¹¥”Ù…¹Í•±˜Ù•ÉÍ­å¸¹¥”¸)ä¡•Ğ¡Õ±±”Ù¥È½¹Ì•µ……¬¸ˆ°‰)ä¡•Ğ½¹Ì½½¬µ••È•±••È…Ì¹•Ğ½´¡…ÉÑ”İ•É¬¸ƒŠq5½•¹¥”±•±¥¬İ••Ì¹¥”»ŠtƒŠq5½•¹¥”©½¬¹¥”»Št5…¹¥•É”¸I•ÍÁ•¬¸=´É•œÑ”‘½•¸…°¥Ì‘¥Ğ¹¥”…±Ñå‘¥”µ…­±¥­”‘¥¹œ¹¥”¸¸İ…¹¹••È…±±•ÌÍ­••™±½½À°¡•Ğ©äÙ¥È½¹Ì•İåÌ¡½”ƒŠe¸µ•¹Ì©½Ô­½À¡½Ô°‘¥¹¬•¸‘¥”Ù½±•¹‘”É•Ñ”‘¥¹œ‘½•¸¸ˆ°‰5……¹‘…œ‰•¥¸•¬•±•­ÑÉ¥•Í”¥¹•¹¥•ÕÉÍİ•Í”¸¥Ğ……¸‘…±¬Í½½ÌµäÉ½½Ğ½½µ‰±¥¬±å¬°µ……È•¬¡•Ğ¹¥”…±±••¸Ñ½Ğ‰ä‘……É‘¥”‘•ÕÈ•­½´¹¥”¸±­”É¥Ğ°•±­”Ù½É´İ…Ğ•Ñ•­•¸¥Ì°•±­”İ•‘ÍÑÉå°•±­”•ÍÁÉ•¬•¸•±­”­••Èİ…Ğ©ä……¹•¡½Ô¡•Ğİ…¹¹••È©ä•¥¹Ñ±¥¬µ½•œİ…Ì°­½´Í……´µ•Ğµä¸ˆ°‰¸•¬¡½½À©ä½¹Ñ¡½Ô‘…Ğ©½ÔÍÑ½É¥”½½¬¹½œ¹¥”­±……È¥Ì¹¥”¸……È¥Ì¹½œ‘……É‘¥”I5@µ‘É½½´°‘……É‘¥”ÍÁ•ÕÉİ•É¬°•¸¹…ÑÕÕÉ±¥¬©½Ô‘É•¥•µ•¹Ğ‘…Ğ©ä	Ñ½”……¸Í½‘É„½¹Ì…±µ…°Õ¥Ğ‘¥”¡Õ¥Ì¥Ì¸)ä¡•ĞÍ½Ù••°Ù…¸©½Ô±•İ”¥¸½¹ÌÑ½•­½µÌ•Í¥Ğ¸¬¡½½À©ä­Éä½½¬©½Õ¹”¸ˆ°‰…¹­¥”°5…µµ„¸Y¥È‘¥”É½½Ğ‘¥¹”¸Y¥È‘¥”­±•¥¸‘¥¹”¸¸Ù¥È…°‘¥”µ½•¥±¥­”‘¥¹”İ……ÉÙ…¸©ä¹½½¥ĞƒŠe¸É½½ĞÍÑ½É¥”•µ……¬¡•Ğ¹¥”¸=¹ÌÍ¥•¸‘¥Ğ¸=¹ÌÍ¥•¸©½Ô¸¬¥Ì‰…¥”±¥•˜Ù¥È©½Ô¸‰uõôğ½ÍÉ¥ÁĞø(€€ñÍÉ¥ÁĞÍÉŒô‰…ÁÀ¹©Ìˆøğ½ÍÉ¥ÁĞø(ğ½‰½‘äø(ğ½¡Ñµ°ø(
