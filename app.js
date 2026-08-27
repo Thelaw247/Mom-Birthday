@@ -1,6 +1,6 @@
 (() => {
   const $=(s,r=document)=>r.querySelector(s); const $$=(s,r=document)=>[...r.querySelectorAll(s)];
-  const data=JSON.parse($('#site-content').textContent); const P=window.MOM_PHOTOS||{};
+  const data=JSON.parse($('#site-content').textContent); const P=window.__PHOTO_DATA__;
   const photoLibrary=[
     {src:P.kiss,label:'Richter & Mamma',caption:'Richter gee vir Mamma ’n soen.'},
     {src:P.family,label:'Ons familie',caption:'Mamma saam met De Wet, Richter, Joshua en Caleb.'},
