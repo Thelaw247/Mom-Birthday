@@ -1,1 +1,1 @@
-window.__BIRTHDAY_PHOTOS__=Object.assign(window.__BIRTHDAY_PHOTOS__||{}, {"p16":"assets/photos/p16.webp","p17":"assets/photos/p17.webp","p18":"assets/photos/p18.webp"});
+(()=>{function photo(path){var request=new XMLHttpRequest();request.open('GET',path,false);request.send();return 'data:image/webp;base64,'+request.responseText.trim()}window.__BIRTHDAY_PHOTOS__=Object.assign(window.__BIRTHDAY_PHOTOS__||{},{p16:photo('assets/photos/p16.webp.b64'),p17:photo('assets/photos/p17.webp.b64'),p18:photo('assets/photos/p18.webp.b64')})})();
