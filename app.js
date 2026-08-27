@@ -1,255 +1,141 @@
 (() => {
-  const $ = (s, r = document) => r.querySelector(s);
-  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const photoMap = window.__BIRTHDAY_PHOTOS__ || {};
+  document.querySelectorAll('[data-photo]').forEach((img) => {
+    const src = photoMap[img.dataset.photo];
+    if (src) img.src = src;
+  });
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  const birthday = new Date('1988-08-25T22:00:00.000Z'); // midnight Aug 26 SAST; exact birth time unknown
+  const DAY = 86400000, MINUTE = 60000;
+  const fmt = new Intl.NumberFormat('en-CA');
+  const finePointer = matchMedia('(hover:hover) and (pointer:fine)');
 
-  // Dorothy's exact birth time is unknown. The live clock is anchored to
-  // 00:00 on 26 August 1988 in South Africa Standard Time (UTC+2).
-  const birth = new Date('1988-08-25T22:00:00.000Z');
-  const DAY = 86400000;
-  const MINUTE = 60000;
-  const formatter = new Intl.NumberFormat('en-CA');
-
-  const style = document.createElement('style');
-  style.textContent = `
-    .age-gate-screen,.stats-screen,.wrong-age-screen{width:100%;}
-    .age-gate-inner,.wrong-age-inner,.stats-inner{width:min(980px,100%);margin:auto;text-align:center;}
-    .age-gate-card,.wrong-age-card{width:min(660px,100%);margin:auto;padding:clamp(28px,6vw,58px);border-radius:32px;}
-    .age-gate-title,.wrong-age-title,.stats-title{font-size:clamp(2.8rem,8vw,6.4rem);line-height:.95;letter-spacing:-.055em;margin:16px 0 20px;}
-    .age-gate-copy,.wrong-age-copy,.stats-copy{color:var(--muted);font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.7;max-width:680px;margin:0 auto 28px;}
-    .age-form{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;}
-    .age-input{width:150px;padding:16px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.07);color:white;text-align:center;font-size:1.2rem;font-weight:850;outline:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.08);}
-    .age-input:focus{border-color:#8ea0ff;box-shadow:0 0 0 4px rgba(112,107,255,.14);}
-    .age-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:32px 0;}
-    .age-breakdown div{padding:18px 12px;border-radius:20px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);}
-    .age-breakdown strong{display:block;font-size:clamp(1.3rem,3vw,2.2rem);letter-spacing:-.03em;}
-    .age-breakdown span{display:block;color:#aeb5d1;font-size:.8rem;margin-top:5px;text-transform:uppercase;letter-spacing:.09em;}
-    .stats-screen.active{display:block!important;min-height:100svh;padding:max(72px,env(safe-area-inset-top)) max(20px,5vw) 80px;overflow:visible;}
-    .stats-header{max-width:800px;margin:0 auto 44px;text-align:center;}
-    .stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:980px;margin:auto;}
-    .stat-card{min-height:240px;padding:clamp(24px,4vw,38px);border-radius:28px;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 70px rgba(0,0,0,.24);}
-    .stat-card small{color:#aeb8ff;font-weight:800;text-transform:uppercase;letter-spacing:.14em;}
-    .stat-number{display:block;font-size:clamp(2.1rem,6vw,4.8rem);font-weight:950;letter-spacing:-.06em;line-height:.95;margin:14px 0 12px;overflow-wrap:anywhere;}
-    .stat-card p{color:var(--muted);line-height:1.55;margin:0;}
-    .stats-footer{max-width:720px;margin:42px auto 0;text-align:center;}
-    .stats-note{font-size:.82rem;color:#9fa6c2;line-height:1.55;margin-bottom:20px;}
-    #statsContinue:disabled{opacity:.38;cursor:not-allowed;filter:saturate(.35);}
-    #statsUnlockHint{min-height:1.4em;color:#b8c1ff;margin:12px 0 20px;font-size:.9rem;}
-    .live-age-widget{position:fixed;right:max(12px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));z-index:9999;width:min(245px,calc(100vw - 24px));padding:11px 14px;border-radius:18px;background:rgba(10,12,31,.72);border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 14px 45px rgba(0,0,0,.3);pointer-events:none;transition:.3s ease;}
-    .live-age-widget .widget-label{display:block;color:#aeb8ff;font-size:.61rem;font-weight:850;text-transform:uppercase;letter-spacing:.13em;margin-bottom:4px;}
-    .live-age-widget .widget-main{display:flex;align-items:baseline;gap:7px;white-space:nowrap;}
-    .live-age-widget .widget-main strong{font-size:1rem;}
-    .live-age-widget .widget-main span{font-size:.68rem;color:#b9bfd8;overflow:hidden;text-overflow:ellipsis;}
-    .widget-locked .widget-main strong{letter-spacing:.12em;color:#d2d6ea;}
-    @media(max-width:650px){
-      .age-breakdown{grid-template-columns:repeat(2,1fr);}
-      .stats-grid{grid-template-columns:1fr;}
-      .stat-card{min-height:205px;}
-      .live-age-widget{width:auto;max-width:185px;padding:8px 10px;border-radius:14px;}
-      .live-age-widget .widget-main strong{font-size:.82rem;}
-      .live-age-widget .widget-main span{font-size:.58rem;}
-      .live-age-widget .widget-label{font-size:.53rem;}
-    }
-  `;
-  document.head.appendChild(style);
-
-  const intro = $('#intro');
-  if (!intro) return;
-  intro.classList.remove('active');
-
-  const gate = document.createElement('section');
-  gate.id = 'ageGate';
-  gate.className = 'screen age-gate-screen active';
-  gate.innerHTML = `
-    <div class="age-gate-inner">
-      <div class="age-gate-card glass-card">
-        <p class="kicker">Eers een baie belangrike vraag</p>
-        <h1 class="age-gate-title">Hoe oud is jy nou, Mamma?</h1>
-        <p class="age-gate-copy">Geen druk nie. Dis net die eerste sekuriteitskontrole.</p>
-        <form id="ageForm" class="age-form">
-          <input id="ageInput" class="age-input" type="number" inputmode="numeric" min="0" max="120" step="1" required aria-label="Jou ouderdom" placeholder="Jare">
-          <button class="primary-btn" type="submit">Dit is my antwoord <span>→</span></button>
-        </form>
-      </div>
-    </div>`;
-
-  const wrong = document.createElement('section');
-  wrong.id = 'wrongAge';
-  wrong.className = 'screen wrong-age-screen';
-  wrong.innerHTML = `
-    <div class="wrong-age-inner">
-      <div class="wrong-age-card glass-card">
-        <p class="kicker">Ai, Mamma 😌</p>
-        <h2 class="wrong-age-title">Nie heeltemal nie.</h2>
-        <p class="wrong-age-copy">Jy is eintlik <strong id="wrongYearsText">38</strong> jaar oud. Of, as ons onnodig presies wil wees…</p>
-        <div class="age-breakdown">
-          <div><strong id="ageYears">—</strong><span>jaar</span></div>
-          <div><strong id="ageMonths">—</strong><span>maande</span></div>
-          <div><strong id="ageWeeks">—</strong><span>weke</span></div>
-          <div><strong id="ageDays">—</strong><span>dae</span></div>
-          <div><strong id="ageHours">—</strong><span>ure</span></div>
-          <div><strong id="ageMinutes">—</strong><span>minute</span></div>
-          <div style="grid-column:1/-1"><strong id="ageSeconds">—</strong><span>sekondes — en steeds aan die tel</span></div>
-        </div>
-        <button id="wrongAgeContinue" class="primary-btn">Okay, wys my die res <span>→</span></button>
-      </div>
-    </div>`;
-
-  const stats = document.createElement('section');
-  stats.id = 'statsScreen';
-  stats.className = 'screen stats-screen';
-  stats.innerHTML = `
-    <div class="stats-inner">
-      <div class="stats-header">
-        <p class="kicker">38 jaar klink eenvoudig</p>
-        <h2 class="stats-title">Tot jy dit begin uitmekaar haal.</h2>
-        <p class="stats-copy">Hier is ’n paar totaal onnodige — maar nogal indrukwekkende — maniere om Mamma se tyd op aarde te meet.</p>
-      </div>
-      <div class="stats-grid">
-        <article class="stat-card"><small>Jy leef al vir ongeveer</small><strong id="statSeconds" class="stat-number">—</strong><p>sekondes. Hierdie een hou aan tel terwyl jy kyk.</p></article>
-        <article class="stat-card"><small>Jou hart het ongeveer</small><strong id="statHeartbeats" class="stat-number">—</strong><p>keer geklop, met ’n eenvoudige leeftydskatting van gemiddeld 70 slae per minuut.</p></article>
-        <article class="stat-card"><small>As ’n mens 8 uur per nag slaap</small><strong id="statSleep" class="stat-number">—</strong><p>van jou lewe sou ongeveer aan slaap bestee gewees het.</p></article>
-        <article class="stat-card"><small>As ’n stort gemiddeld 8 minute duur</small><strong id="statWater" class="stat-number">—</strong><p>water teen ongeveer 9.5 L/min — net ’n speelse skatting, maar steeds ’n belaglike hoeveelheid water.</p></article>
-        <article class="stat-card"><small>Totale dae op aarde</small><strong id="statDays" class="stat-number">—</strong><p>dae waarin jy kon werk, lag, plan maak, kinders rondry en almal probeer leer om maniere te hê.</p></article>
-        <article id="lastStatCard" class="stat-card"><small>Reise om die son</small><strong class="stat-number">38</strong><p>En gelukkig is daar nog baie oor. Jou eie volgende hoofstuk tel ook.</p></article>
-      </div>
-      <div class="stats-footer">
-        <p class="stats-note">Die sekonde-, minuut-, uur- en dagtellings gebruik 00:00 op 26 Augustus 1988 in Suid-Afrika as anker omdat ons nie jou presiese geboortetyd hier gebruik nie. Hartklop, slaap en stortwater is doelbewus gemerkte skattings.</p>
-        <p id="statsUnlockHint">Kyk eers deur al die statistieke ↓</p>
-        <button id="statsContinue" class="primary-btn" disabled>Goed. Bring nou die toets <span>→</span></button>
-      </div>
-    </div>`;
-
-  intro.parentNode.insertBefore(gate, intro);
-  intro.parentNode.insertBefore(wrong, intro);
-  intro.parentNode.insertBefore(stats, intro);
-
-  const widget = document.createElement('aside');
-  widget.id = 'liveAgeWidget';
-  widget.className = 'live-age-widget widget-locked';
-  widget.setAttribute('aria-live', 'polite');
-  widget.innerHTML = `<span class="widget-label">Mamma se live ouderdom</span><div class="widget-main"><strong id="widgetYears">???</strong><span id="widgetSeconds">wag vir antwoord…</span></div>`;
-  document.body.appendChild(widget);
-
-  const preScreens = [gate, wrong, stats, intro, $('#quiz'), $('#quizComplete')];
-  const show = (screen) => {
-    preScreens.forEach((x) => x?.classList.remove('active'));
-    screen?.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  };
-
-  function lifetime(now = new Date()) {
-    const ms = Math.max(0, now - birth);
-    const totalSeconds = Math.floor(ms / 1000);
-    const totalMinutes = Math.floor(ms / MINUTE);
-    const totalHours = Math.floor(ms / 3600000);
-    const totalDays = Math.floor(ms / DAY);
-    const totalWeeks = Math.floor(totalDays / 7);
-
-    // Calendar age in South Africa time.
-    const sast = new Date(now.getTime() + 2 * 3600000);
-    const birthYear = 1988;
-    const birthMonth = 7; // August, zero-indexed.
-    const birthDay = 26;
-    let years = sast.getUTCFullYear() - birthYear;
-    if (sast.getUTCMonth() < birthMonth || (sast.getUTCMonth() === birthMonth && sast.getUTCDate() < birthDay)) years -= 1;
-    let months = (sast.getUTCFullYear() - birthYear) * 12 + (sast.getUTCMonth() - birthMonth);
-    if (sast.getUTCDate() < birthDay) months -= 1;
-    return { years, months, totalWeeks, totalDays, totalHours, totalMinutes, totalSeconds };
+  // Decorative 38-star sky.
+  const stars = $('#stars');
+  for (let i=0; i<38; i++) {
+    const s=document.createElement('span'); s.className='star';
+    s.style.left=`${Math.random()*100}%`; s.style.top=`${Math.random()*100}%`; s.style.animationDelay=`${Math.random()*3}s`;
+    stars.appendChild(s);
   }
 
-  const setText = (selector, value) => {
-    const el = $(selector);
-    if (el) el.textContent = value;
-  };
 
-  function updateLifetime() {
-    const a = lifetime();
-    setText('#wrongYearsText', formatter.format(a.years));
-    setText('#ageYears', formatter.format(a.years));
-    setText('#ageMonths', formatter.format(a.months));
-    setText('#ageWeeks', formatter.format(a.totalWeeks));
-    setText('#ageDays', formatter.format(a.totalDays));
-    setText('#ageHours', formatter.format(a.totalHours));
-    setText('#ageMinutes', formatter.format(a.totalMinutes));
-    setText('#ageSeconds', formatter.format(a.totalSeconds));
-    setText('#statSeconds', formatter.format(a.totalSeconds));
-    setText('#statHeartbeats', `≈ ${formatter.format(Math.floor(a.totalMinutes * 70))}`);
-    setText('#statSleep', `≈ ${(a.totalHours / 3 / 24 / 365.2425).toFixed(1)} jaar`);
-    setText('#statWater', `≈ ${formatter.format(Math.floor(a.totalDays * 8 * 9.5))} L`);
-    setText('#statDays', formatter.format(a.totalDays));
-    if (!widget.classList.contains('widget-locked')) {
-      setText('#widgetYears', `${a.years} jaar`);
-      setText('#widgetSeconds', `${formatter.format(a.totalSeconds)} sekondes`);
-    }
+  const screens = $$('.gate-screen');
+  function showScreen(id) {
+    screens.forEach(s => s.classList.remove('active'));
+    const next = $(id); next?.classList.add('active');
+    if (next?.classList.contains('screen-scroll')) next.scrollTop = 0;
   }
 
-  updateLifetime();
-  setInterval(updateLifetime, 1000);
-
-  function revealWidget() {
-    widget.classList.remove('widget-locked');
-    updateLifetime();
+  function ageNow(now=new Date()) {
+    const ms=Math.max(0, now-birthday);
+    const totalSeconds=Math.floor(ms/1000), totalMinutes=Math.floor(ms/MINUTE), totalHours=Math.floor(ms/3600000), totalDays=Math.floor(ms/DAY), totalWeeks=Math.floor(totalDays/7);
+    const sast=new Date(now.getTime()+2*3600000);
+    let years=sast.getUTCFullYear()-1988;
+    if (sast.getUTCMonth()<7 || (sast.getUTCMonth()===7 && sast.getUTCDate()<26)) years--;
+    let totalMonths=(sast.getUTCFullYear()-1988)*12+(sast.getUTCMonth()-7);
+    if (sast.getUTCDate()<26) totalMonths--;
+    return {years,totalMonths,totalWeeks,totalDays,totalHours,totalMinutes,totalSeconds};
   }
+  const put=(id,v)=>{const el=$(id);if(el)el.textContent=v};
+  let ageRevealed=false;
+  function tick(){
+    const a=ageNow();
+    put('#wrongYearsText',a.years); put('#ageYears',fmt.format(a.years)); put('#ageMonths',fmt.format(a.totalMonths)); put('#ageWeeks',fmt.format(a.totalWeeks)); put('#ageDays',fmt.format(a.totalDays)); put('#ageHours',fmt.format(a.totalHours)); put('#ageMinutes',fmt.format(a.totalMinutes)); put('#ageSeconds',fmt.format(a.totalSeconds));
+    put('#statSeconds',fmt.format(a.totalSeconds)); put('#statHeartbeats',`≈ ${fmt.format(Math.floor(a.totalMinutes*70))}`); put('#statSleep',`≈ ${(a.totalHours/3/24/365.2425).toFixed(1)} jaar`); put('#statWater',`≈ ${fmt.format(Math.floor(a.totalDays*8*9.5))} L`); put('#statDays',fmt.format(a.totalDays));
+    if(ageRevealed){put('#widgetYears',`${a.years} jaar`);put('#widgetSeconds',`${fmt.format(a.totalSeconds)} sekondes`)}
+  }
+  tick(); setInterval(tick,1000);
+
+  $('#ageForm').addEventListener('submit',e=>{
+    e.preventDefault(); ageRevealed=true; $('#liveAgeWidget').classList.remove('widget-locked'); tick();
+    const entered=Number($('#ageInput').value);
+    if(entered===ageNow().years){showScreen('#statsScreen');armStats();}
+    else showScreen('#wrongAge');
+  });
+  $('#wrongAgeContinue').addEventListener('click',()=>{showScreen('#statsScreen');armStats();});
 
   let statsObserver;
-  function armStatsGate() {
-    const btn = $('#statsContinue');
-    const last = $('#lastStatCard');
-    btn.disabled = true;
-    setText('#statsUnlockHint', 'Kyk eers deur al die statistieke ↓');
+  function armStats(){
+    const btn=$('#statsContinue'); btn.disabled=true; put('#statsUnlockHint','Kyk eers deur al die statistieke ↓');
     statsObserver?.disconnect();
-    statsObserver = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.6)) {
-        window.setTimeout(() => {
-          btn.disabled = false;
-          setText('#statsUnlockHint', 'Reg. Nou kan ons aangaan.');
-        }, 650);
-        statsObserver.disconnect();
+    statsObserver=new IntersectionObserver(entries=>{
+      if(entries.some(e=>e.isIntersecting&&e.intersectionRatio>=.55)){
+        setTimeout(()=>{btn.disabled=false;put('#statsUnlockHint','Reg. Nou kan ons aangaan.');},450); statsObserver.disconnect();
       }
-    }, { threshold: [0.6] });
-    statsObserver.observe(last);
+    },{root:$('#statsScreen'),threshold:[.55]});
+    statsObserver.observe($('#lastStatCard'));
   }
+  $('#statsContinue').addEventListener('click',()=>{if(!$('#statsContinue').disabled){showScreen('#quizScreen');loadQuestion();}});
 
-  $('#ageForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const value = Number($('#ageInput').value);
-    if (!Number.isFinite(value)) return;
-    revealWidget();
-    updateLifetime();
-    if (value === lifetime().years) {
-      show(stats);
-      requestAnimationFrame(armStatsGate);
-    } else {
-      show(wrong);
+  const questions=[
+    ['Hardwerkend én nogal ongelooflik?','Bewysstuk 01','Ons het in 2020 van Suid-Afrika na Kanada getrek. Jy het saam met ons van voor af begin, aangehou werk en seker gemaak ons voel veilig terwyl alles nuut was.'],
+    ['Iemand wat altyd vir my kinders opdaag — selfs wanneer ek moeg is?','Bewysstuk 02','Vir elf jaar was jy deel van De Wet se stoei. Die laaste drie jaar het dit gereeld ’n uur stad toe beteken, drie of vier keer ’n week; voor dit was oefening omtrent vyf minute van die huis af. Jy was ook by Richter se hokkie en die tweeling se sport.'],
+    ['Die een wat hierdie hele familie op een of ander manier aan die gang hou?','Bewysstuk 03','Vier seuns. Vier persoonlikhede. Vier stelle planne. En een Mamma wat gewoonlik weet wie waar moet wees en wie hulp nodig het.'],
+    ['Dapper genoeg om my hele lewe oor ’n oseaan te skuif en van voor af te begin?','Bewysstuk 04','Suid-Afrika was bekend. Kanada was nuut. Jy het baie onsekerheid gedra sonder om dit ons las te maak.'],
+    ['Iemand wat omtrent enigiets vir my kinders sal doen?','Bewysstuk 05','Die ryery. Die wagtyd. Die werk. Die kos. Die papierwerk. Die luister. Die moeilike dinge wat jy doen omdat jy vir ons lief is. Ons sien dit.'],
+    ['Liefdevol, kalm en iemand wat eers dink voordat ek reageer?','Bewysstuk 06','Wanneer dinge skeefloop, verloor jy nie sommer jou kop nie. Jy dink, kyk wat gedoen moet word en beweeg dan vorentoe.'],
+    ['Iemand wat meer vir hierdie familie opoffer as wat ek self soms besef?','Bewysstuk 07','Selfs jou hande wys hoeveel jy werk. Wanneer jou liggaam moeg raak, hou jy steeds aan en kom huis toe sonder om almal anders daarvoor te straf.'],
+    ['Gedissiplineerd, konsekwent en sterk wanneer dinge moeilik raak?','Bewysstuk 08','Jy staan op vir wat reg is, hou van goeie maniere en respek, en bly konsekwent selfs wanneer dit makliker sou wees om nie te wees nie.'],
+    ['Iemand wat kinders grootgemaak het wat gereed is om hul eie pad te begin stap?','Bewysstuk 09','De Wet gaan elektriese ingenieurswese studeer. Dis sy volgende hoofstuk, maar dit dra jare se ondersteuning, sport en jou geloof in hom saam.'],
+    ['Belaglik, oorweldigend baie liefgehê?','Bewysstuk 10','Ja. Deur De Wet, Richter, Joshua en Caleb. Ons sien jou. Ons sien die harde goed ook. En ons is baie lief vir jou.']
+  ];
+  const jokes=['Nee wat, Mamma. Daardie antwoord gaan nie vandag werk nie.','Mooi probeer. Die knoppie glo jou nie.','Mamma… moenie jok nie, onthou? 😌','Hierdie webblad aanvaar nie laster teen my mamma nie.','Respek asseblief. Veral vir jouself.','Jy kan hom jaag, maar jy gaan hom nie vang nie.'];
+  let qi=0,answered=false,noAttempts=0,noMoved=false;
+  const no=$('#noBtn'),yes=$('#yesBtn'),next=$('#nextQuestion');
+  const noAnchor=document.createComment('no-button-home'); no.before(noAnchor);
+  function resetNo(){
+    if(no.parentNode!==noAnchor.parentNode) noAnchor.parentNode.insertBefore(no,noAnchor.nextSibling);
+    noMoved=false;Object.assign(no.style,{position:'',left:'',top:'',transform:'',zIndex:'',width:'',height:''});no.style.opacity='1';
+  }
+  function loadQuestion(){answered=false;noAttempts=0;resetNo();$('#noMessage').textContent='';$('#evidenceCard').classList.remove('show');$('#evidenceCard').setAttribute('aria-hidden','true');next.disabled=true;next.tabIndex=-1;$('#questionCounter').textContent=`Vraag ${qi+1} van ${questions.length}`;$('#progressBar').style.width=`${(qi+1)/questions.length*100}%`;$('#questionText').textContent=questions[qi][0];}
+  function candidatePosition(width,height){
+    const yr=yes.getBoundingClientRect();
+    const vv=window.visualViewport; const vw=vv?.width||innerWidth, vh=vv?.height||innerHeight; const ox=vv?.offsetLeft||0, oy=vv?.offsetTop||0;
+    const pad=16, topPad=76, bottomPad=24; let x=ox+pad,y=oy+topPad;
+    for(let i=0;i<80;i++){
+      x=ox+pad+Math.random()*Math.max(1,vw-width-pad*2);
+      y=oy+topPad+Math.random()*Math.max(1,vh-height-topPad-bottomPad);
+      const overlapsYes=!(x+width<yr.left-30||x>yr.right+30||y+height<yr.top-30||y>yr.bottom+30);
+      if(!overlapsYes) break;
     }
+    x=Math.max(ox+pad,Math.min(x,ox+vw-width-pad));
+    y=Math.max(oy+topPad,Math.min(y,oy+vh-height-bottomPad));
+    return{x,y};
+  }
+  function moveNo(){
+    const r=no.getBoundingClientRect(), width=r.width, height=r.height;
+    if(!noMoved){noMoved=true;document.body.appendChild(no);}
+    const {x,y}=candidatePosition(width,height);
+    Object.assign(no.style,{position:'fixed',left:`${x}px`,top:`${y}px`,width:`${width}px`,height:`${height}px`,zIndex:'12000',transform:'none'});
+    noAttempts++; $('#noMessage').textContent=jokes[(noAttempts-1)%jokes.length];
+  }
+  window.addEventListener('pointermove',e=>{
+    if(!finePointer.matches||answered||!$('#quizScreen').classList.contains('active'))return;
+    const r=no.getBoundingClientRect(); const cx=r.left+r.width/2,cy=r.top+r.height/2; const distance=Math.hypot(e.clientX-cx,e.clientY-cy);
+    if(distance<145) moveNo();
+  },{passive:true});
+  no.addEventListener('pointerenter',e=>{if(finePointer.matches&&!answered)moveNo();});
+  no.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(!finePointer.matches&&!answered){setTimeout(moveNo,0);}else if(finePointer.matches&&!answered){moveNo();}});
+  no.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&!answered){e.preventDefault();moveNo();}});
+  yes.addEventListener('click',()=>{if(answered)return;answered=true;resetNo();const q=questions[qi];$('#evidenceTitle').textContent=q[1];$('#evidenceText').textContent=q[2];$('#evidenceCard').classList.add('show');$('#evidenceCard').setAttribute('aria-hidden','false');next.disabled=false;next.tabIndex=0;});
+  next.addEventListener('click',()=>{if(!answered)return;if(qi<questions.length-1){qi++;loadQuestion();}else showScreen('#quizComplete');});
+  $('#unlockExperience').addEventListener('click',()=>{
+    $('#gateShell').hidden=true; const exp=$('#experience');exp.hidden=false;exp.removeAttribute('inert');document.body.classList.remove('locked');window.scrollTo(0,0);initReveals();
   });
 
-  $('#wrongAgeContinue')?.addEventListener('click', () => {
-    show(stats);
-    requestAnimationFrame(armStatsGate);
-  });
-
-  let mainLoaded = false;
-  function loadMainAndStartQuiz() {
-    if (mainLoaded) return;
-    mainLoaded = true;
-    const script = document.createElement('script');
-    script.src = 'main-app.js';
-    script.onload = () => {
-      // Skip the old intro screen: stats flow directly into the quiz wall.
-      $('#startQuiz')?.click();
-    };
-    script.onerror = () => {
-      mainLoaded = false;
-      setText('#statsUnlockHint', 'Die toets wou nie laai nie. Probeer asseblief weer.');
-      $('#statsContinue').disabled = false;
-    };
-    document.body.appendChild(script);
+  function initReveals(){
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -4%'});$$('.reveal').forEach(el=>io.observe(el));
   }
 
-  $('#statsContinue')?.addEventListener('click', () => {
-    if ($('#statsContinue').disabled) return;
-    show(intro);
-    loadMainAndStartQuiz();
-  });
+  // Photo lightbox: every gallery photo keeps its natural aspect ratio on the page and uses contain in the dialog.
+  const lightbox=$('#lightbox'),lbMedia=$('#lightboxMedia'),lbCap=$('#lightboxCaption');
+  $$('#photoWall figure,.hero-gallery figure,.story-pair figure').forEach(fig=>fig.addEventListener('click',()=>{
+    const img=$('img',fig),svg=$('svg.photo-slice',fig); lbMedia.innerHTML='';
+    if(img){const clone=img.cloneNode(true);clone.removeAttribute('loading');lbMedia.appendChild(clone);lbCap.textContent=$('figcaption',fig)?.textContent||img.alt;}
+    else if(svg){const clone=svg.cloneNode(true);clone.setAttribute('preserveAspectRatio','xMidYMid meet');lbMedia.appendChild(clone);lbCap.textContent=$('figcaption',fig)?.textContent||svg.getAttribute('aria-label')||'';}
+    lightbox.showModal();
+  }));
+  $('[data-close-lightbox]').addEventListener('click',()=>lightbox.close()); lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();});
+  const letter=$('#letterDialog');$('#openLetter').addEventListener('click',()=>letter.showModal());$('[data-close-letter]').addEventListener('click',()=>letter.close());letter.addEventListener('click',e=>{if(e.target===letter)letter.close();});
 })();
