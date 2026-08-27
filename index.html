@@ -1,31 +1,283 @@
 <!DOCTYPE html>
+
 <html lang="af">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#090b1a" name="theme-color"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
 <title>Gelukkige 38ste verjaarsdag, Mamma</title>
-<meta name="description" content="38 jaar van jou — ’n verjaarsdaggeskenk vir Mamma.">
-<meta name="robots" content="noindex, nofollow, noarchive">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://dorothy-38-birthday.onrender.com/">
-<meta property="og:title" content="Gelukkige 38ste verjaarsdag, Mamma ♥">
-<meta property="og:description" content="38 jaar van jou. Een klein webwerf. Baie liefde.">
-<meta property="og:image" content="https://placehold.co/1200x630/090B1A/C9B6FF/png?text=Gelukkige%2038ste%20verjaarsdag%2C%20Mamma%20%E2%99%A5">
-<meta property="og:image:secure_url" content="https://placehold.co/1200x630/090B1A/C9B6FF/png?text=Gelukkige%2038ste%20verjaarsdag%2C%20Mamma%20%E2%99%A5">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Gelukkige 38ste verjaarsdag, Mamma">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Gelukkige 38ste verjaarsdag, Mamma ♥">
-<meta name="twitter:description" content="38 jaar van jou. Een klein webwerf. Baie liefde.">
-<meta name="twitter:image" content="https://placehold.co/1200x630/090B1A/C9B6FF/png?text=Gelukkige%2038ste%20verjaarsdag%2C%20Mamma%20%E2%99%A5">
-<style>
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#070917}iframe{display:block;border:0;width:100%;height:100%;height:100dvh;background:#070917}
-</style>
+<meta content="38 jaar van jou — ’n verjaarsdaggeskenk vir Mamma." name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://dorothy-38-birthday.onrender.com/" property="og:url"/>
+<meta content="Gelukkige 38ste verjaarsdag, Mamma ♥" property="og:title"/>
+<meta content="38 jaar van jou. Baie liefde." property="og:description"/>
+<meta content="https://dorothy-38-birthday.onrender.com/assets/social.jpg" property="og:image"/>
+<meta content="https://dorothy-38-birthday.onrender.com/assets/social.jpg" property="og:image:secure_url"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Gelukkige 38ste verjaarsdag, Mamma" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Gelukkige 38ste verjaarsdag, Mamma ♥" name="twitter:title"/>
+<meta content="38 jaar van jou. Baie liefde." name="twitter:description"/>
+<meta content="https://dorothy-38-birthday.onrender.com/assets/social.jpg" name="twitter:image"/>
+<link href="styles.css" rel="stylesheet"/>
 </head>
-<body>
-<iframe src="birthday.html" title="Mamma se verjaarsdagwebwerf" allow="fullscreen"></iframe>
-<noscript><p style="color:white;font-family:sans-serif;padding:24px">JavaScript moet aangeskakel wees. <a style="color:#b7c0ff" href="birthday.html">Maak die verjaarsdagwebwerf oop.</a></p></noscript>
+<body class="locked">
+<div aria-hidden="true" class="bg-grid"></div>
+<div aria-hidden="true" class="aurora aurora-a"></div>
+<div aria-hidden="true" class="aurora aurora-b"></div>
+<div aria-hidden="true" class="stars" id="stars"></div>
+<aside aria-live="polite" class="live-age-widget widget-locked" id="liveAgeWidget">
+<span class="widget-label">Mamma se live ouderdom</span>
+<div class="widget-main"><strong id="widgetYears">???</strong><span id="widgetSeconds">wag vir antwoord…</span></div>
+</aside>
+<div class="gate-shell" id="gateShell">
+<section class="gate-screen active" id="ageGate">
+<div class="screen-center">
+<div class="gate-card glass">
+<p class="eyebrow">Eers een sekuriteitskontrole</p>
+<h1>Hoe oud is jy nou, Mamma?</h1>
+<p class="lede">Geen druk nie. Ons gaan net kyk of jy jou eie verjaarsdagdata ken.</p>
+<form class="age-form" id="ageForm">
+<input aria-label="Jou ouderdom" id="ageInput" inputmode="numeric" max="120" min="0" placeholder="Jare" required="" step="1" type="number"/>
+<button class="primary-btn" type="submit">Dit is my antwoord <span>→</span></button>
+</form>
+</div>
+</div>
+</section>
+<section class="gate-screen" id="wrongAge">
+<div class="screen-center">
+<div class="gate-card glass wide-card">
+<p class="eyebrow">Ai, Mamma 😌</p>
+<h2>Nie heeltemal nie.</h2>
+<p class="lede">Jy is eintlik <strong id="wrongYearsText">38</strong> jaar oud. Of, as ons onnodig presies wil wees…</p>
+<div class="age-breakdown">
+<div><strong id="ageYears">—</strong><span>jaar</span></div>
+<div><strong id="ageMonths">—</strong><span>maande</span></div>
+<div><strong id="ageWeeks">—</strong><span>weke</span></div>
+<div><strong id="ageDays">—</strong><span>dae</span></div>
+<div><strong id="ageHours">—</strong><span>ure</span></div>
+<div><strong id="ageMinutes">—</strong><span>minute</span></div>
+<div class="seconds-wide"><strong id="ageSeconds">—</strong><span>sekondes — en steeds aan die tel</span></div>
+</div>
+<button class="primary-btn" id="wrongAgeContinue">Okay, wys my die res <span>→</span></button>
+</div>
+</div>
+</section>
+<section class="gate-screen screen-scroll" id="statsScreen">
+<div class="stats-wrap">
+<header class="stats-head">
+<p class="eyebrow">38 jaar klink eenvoudig</p>
+<h2>Tot jy dit begin uitmekaar haal.</h2>
+<p class="lede">’n Paar totaal onnodige — maar nogal indrukwekkende — maniere om jou tyd op aarde te meet.</p>
+</header>
+<div class="stats-grid">
+<article class="stat-card glass"><span>Sekondes geleef</span><strong id="statSeconds">—</strong><p>Hierdie een hou aan tel terwyl jy kyk.</p></article>
+<article class="stat-card glass"><span>Geskatte hartkloppe</span><strong id="statHeartbeats">—</strong><p>Teen ’n eenvoudige leeftydsgemiddeld van 70 per minuut.</p></article>
+<article class="stat-card glass"><span>Geskatte tyd geslaap</span><strong id="statSleep">—</strong><p>As ons gemiddeld 8 uur slaap per nag gebruik.</p></article>
+<article class="stat-card glass"><span>Geskatte stortwater</span><strong id="statWater">—</strong><p>Een 8-minuut stort per dag teen ongeveer 9.5 L/min.</p></article>
+<article class="stat-card glass"><span>Dae op aarde</span><strong id="statDays">—</strong><p>Baie dae van werk, familie, plan maak en mense rondry.</p></article>
+<article class="stat-card glass" id="lastStatCard"><span>Reise om die son</span><strong>38</strong><p>En gelukkig is daar nog baie oor.</p></article>
+</div>
+<div class="stats-footer">
+<p class="stats-note">Die live tydtellers gebruik 00:00 op 26 Augustus 1988 in Suid-Afrika as anker omdat jou presiese geboortetyd nie hier gebruik word nie. Hartklop, slaap en stortwater is speelse skattings.</p>
+<p id="statsUnlockHint">Kyk eers deur al die statistieke ↓</p>
+<button class="primary-btn" disabled="" id="statsContinue">Goed. Bring nou die toets <span>→</span></button>
+</div>
+</div>
+</section>
+<section aria-live="polite" class="gate-screen quiz-screen" id="quizScreen">
+<div class="quiz-stack">
+<div class="quiz-card glass">
+<div class="quiz-topline">
+<span id="questionCounter">Vraag 1 van 10</span>
+<div class="progress"><span id="progressBar"></span></div>
+</div>
+<p class="eyebrow">Mamma se amptelike verjaarsdagtoets</p>
+<h2 id="questionText"></h2>
+<div class="answer-zone" id="answerZone">
+<button class="answer-btn yes-btn" id="yesBtn">Ek is</button>
+<button class="answer-btn no-btn" id="noBtn">Ek is nie</button>
+</div>
+<p class="no-message" id="noMessage"></p>
+</div>
+<div aria-hidden="true" class="evidence-card glass" id="evidenceCard">
+<span class="evidence-label" id="evidenceTitle"></span>
+<p id="evidenceText"></p>
+<button class="text-btn" disabled="" id="nextQuestion">Volgende feit →</button>
+</div>
+</div>
+</section>
+<section class="gate-screen" id="quizComplete">
+<div class="screen-center">
+<div class="gate-card glass">
+<span class="score-orbit">10 / 10</span>
+<h2>Ons het dit bevestig.</h2>
+<p class="lede">Die sekuriteitskontrole is geslaag. Jy mag nou by jou verjaarsdaggeskenk in.</p>
+<button class="primary-btn" id="unlockExperience">Ontsluit die res <span>→</span></button>
+</div>
+</div>
+</section>
+</div>
+<main hidden="" id="experience" inert="">
+<header class="hero section-pad">
+<div class="hero-copy reveal">
+<p class="eyebrow">38 jaar van jou</p>
+<h1>Hierdie een is vir <span>jou</span>, Mamma.</h1>
+<p>Nie ’n perfekte storie nie. Net regte oomblikke wat saam een ding sê: ons sien jou.</p>
+</div>
+<div class="hero-gallery reveal">
+<figure class="hero-main"><img alt="Mamma saam met die familie" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p15"/></figure>
+<figure><img alt="Richter gee vir Mamma ’n soen" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p08"/></figure>
+<figure><img alt="Mamma teen sononder" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p07"/></figure>
+</div>
+</header>
+<section class="chapter section-pad">
+<div class="section-copy reveal">
+<p class="eyebrow">Hoofstuk 01</p>
+<h2>Voor ons almal.</h2>
+<p>Voor jy Mamma was, was jy Dorothy — met jou eie planne, jou sterk gevoel vir reg en verkeerd, en blykbaar reeds ’n ingeboude speurder-instink.</p>
+</div>
+<div class="timeline reveal">
+<div><strong>1988</strong><span>Die storie begin.</span></div>
+<div><strong>2020</strong><span>Ons trek van Suid-Afrika na Kanada.</span></div>
+<div><strong>2026</strong><span>Vier seuns, ’n nuwe universiteitshoofstuk, en Mamma draai 38.</span></div>
+</div>
+</section>
+<section class="casefile section-pad">
+<div class="case-card glass reveal">
+<div class="case-top"><span>SAKELÊER 001</span><span>STATUS: OU NUUS</span></div>
+<p class="eyebrow">Mamma was blykbaar nog altyd so</p>
+<h2>Die melk-dief ondersoek.</h2>
+<div class="case-grid">
+<div><small>Ondersoeker</small><strong>Dorothy</strong></div>
+<div><small>Voertuig</small><strong>Quad</strong></div>
+<div><small>Verdagtes</small><strong>Melkdiewe op die plaas</strong></div>
+<div><small>Motief</small><strong>“Dis nie reg nie.”</strong></div>
+</div>
+<p>Lank voor die RCMP-droom en speurwerk het jy reeds mense op ’n quad agternagesit omdat hulle melk gesteel het.</p>
+</div>
+</section>
+<section class="showed-up section-pad">
+<div class="section-copy reveal">
+<p class="eyebrow">Hoofstuk 02</p>
+<h2>Jy het opgedaag.</h2>
+<p>Vir elf jaar was jy deel van my stoei. Die <strong>laaste drie jaar</strong> het dit gereeld beteken dat jy my omtrent ’n uur stad toe moes ry, drie of vier keer per week. Voor dit was oefening net omtrent vyf minute van die huis af. Jy het ook by Richter se hokkie, die tweeling se sport en ons ander groot dae opgedaag.</p>
+</div>
+<div class="story-pair reveal">
+<figure><img alt="Mamma saam met De Wet by atletiek" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p05"/></figure>
+<figure><img alt="Mamma saam met familie by die werk" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p09"/></figure>
+</div>
+</section>
+<section class="cost section-pad">
+<div class="section-copy center reveal">
+<p class="eyebrow">Die deel wat ons wel sien</p>
+<h2>Ons sien wat dit jou kos.</h2>
+<p>Ons sien die lang dae. Ons sien die ongemak. Ons sien jou hande wat moeg word. En ons sien dat jy nog steeds huis toe kom en nie al daardie stres op almal anders uithaal nie.</p>
+</div>
+<div class="big-quote reveal">Wanneer dinge skeefloop, bly jy die een wat eers dink.</div>
+</section>
+<section class="values section-pad">
+<div class="section-copy center reveal">
+<p class="eyebrow">Goed wat in ons koppe bly</p>
+<h2>Wat Mamma ons geleer het.</h2>
+</div>
+<div class="values-grid">
+<div class="value-card reveal"><strong>“Moenie lelik wees nie.”</strong><p>Hoe jy mense behandel, maak saak.</p></div>
+<div class="value-card reveal"><strong>“Moenie jok nie.”</strong><p>Die waarheid is nie onderhandelbaar nie.</p></div>
+<div class="value-card reveal"><strong>Maniere.</strong><p>By die tafel en oral anders.</p></div>
+<div class="value-card reveal"><strong>Respek.</strong><p>Vir almal — nie net wanneer dit gerieflik is nie.</p></div>
+</div>
+</section>
+<section class="family-roots section-pad">
+<div class="section-copy reveal">
+<p class="eyebrow">Familie</p>
+<h2>Voor jy ons Mamma was, was jy ook iemand se dogter en suster.</h2>
+<p>En nou loop daar ’n hele klomp mense, herinneringe en stories deur dieselfde familie.</p>
+</div>
+<div class="story-pair reveal">
+<figure><img alt="Mamma saam met haar familie" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p10"/></figure>
+<figure><img alt="Familie saam buite" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p16"/></figure>
+</div>
+</section>
+<section class="photos section-pad">
+<div class="section-copy center reveal">
+<p class="eyebrow">Die foto’s</p>
+<h2>Al die oomblikke wat jy vir my gegee het.</h2>
+<p>Ek het die unieke foto’s wat jy vir my gestuur het hier ingebou sonder om hulle deur dieselfde onnatuurlike crop te forseer.</p>
+</div>
+<div class="photo-wall" id="photoWall">
+<figure><img alt="Mamma saam met familie" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p01"/><figcaption>Familie</figcaption></figure>
+<figure><img alt="Familie-oomblik op die dek" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p02"/><figcaption>Een van die klein familie-oomblikke</figcaption></figure>
+<figure><img alt="Familie om die tafel" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p03"/><figcaption>Om die tafel</figcaption></figure>
+<figure><img alt="Familie by ete" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p04"/><figcaption>Gewone dae wat later groot herinneringe word</figcaption></figure>
+<figure><img alt="Mamma en De Wet by atletiek" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p05"/><figcaption>Jy het opgedaag</figcaption></figure>
+<figure><img alt="Familie in die motor" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p06"/><figcaption>Ons lekker chaos</figcaption></figure>
+<figure><img alt="Mamma teen sononder" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p07"/><figcaption>Mamma</figcaption></figure>
+<figure><img alt="Richter gee vir Mamma ’n soen" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p08"/><figcaption>Richter &amp; Mamma</figcaption></figure>
+<figure><img alt="Mamma saam met Oom David en Oupa Ben" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p09"/><figcaption>By die werk</figcaption></figure>
+<figure><img alt="Mamma saam met haar broers en ouers" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p10"/><figcaption>Waar jy vandaan kom</figcaption></figure>
+<figure><img alt="Familie op die dek" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p11"/><figcaption>Familie</figcaption></figure>
+<figure><img alt="Kajak-avontuur" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p12"/><figcaption>Avonture</figcaption></figure>
+<figure><img alt="Kajak-avontuur op die water" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p13"/><figcaption>Meer avonture</figcaption></figure>
+<figure><img alt="Mamma in ’n rustieke omgewing" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p14"/><figcaption>’n Ander hoofstuk</figcaption></figure>
+<figure><img alt="Mamma saam met De Wet, Richter, Joshua, Caleb en Lyle" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p15"/><figcaption>Die span</figcaption></figure>
+<figure><img alt="Familie saam buite" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p16"/><figcaption>Generasies</figcaption></figure>
+<figure><img alt="Mamma saam met familie" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p17"/><figcaption>Saam</figcaption></figure>
+<figure><img alt="Candid familie-oomblik" decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-photo="p18"/><figcaption>Klein oomblikke</figcaption></figure>
+</div>
+</section>
+<section class="messages section-pad">
+<div class="section-copy center reveal"><p class="eyebrow">Vier stemme</p><h2>Van ons vir jou.</h2></div>
+<div class="messages-grid">
+<article class="message-card reveal"><strong>De Wet</strong><p>Ons sien hoe hard jy werk en wat jy doelbewus verdra vir die mense vir wie jy lief is. Ek dra baie van wat jy my geleer het saam universiteit toe.</p></article>
+<article class="message-card reveal"><strong>Richter</strong><p>Ek waardeer hoe vriendelik en goed jy met my is.</p></article>
+<article class="message-card reveal"><strong>Joshua</strong><p>Ek waardeer dat jy stadig kwaad word, al my inskrywingsvorms teken en luister wanneer daar ’n probleem is.</p></article>
+<article class="message-card reveal"><strong>Caleb</strong><p>Jy is die beste, gaafste en mooiste Mamma in die wêreld.</p></article>
+</div>
+</section>
+<section class="university section-pad">
+<div class="section-copy center reveal">
+<p class="eyebrow">En nou, universiteit</p>
+<h2>Elektriese ingenieurswese.</h2>
+<p>Wanneer ek by universiteit instap, gaan dit soos my groot oomblik lyk. Maar ek het nie alleen tot by daardie deur gekom nie. Daar is elf jaar van stoei, jare se ondersteuning, en die laaste drie jaar se lang stad-ritte saam met my deur daardie deur.</p>
+</div>
+</section>
+<section class="future section-pad">
+<div class="future-card glass reveal">
+<p class="eyebrow">En Mamma se storie?</p>
+<h2>Jy is nog lank nie klaar nie.</h2>
+<p>Ons hoop jy kry jou kans met die RCMP en speurwerk. Jy het soveel van jou lewe in ons toekoms gesit. Ons hoop jy kry ook joune.</p>
+<div class="dreams"><span>RCMP</span><span>Speurwerk</span><span>BC?</span><span>Jou volgende hoofstuk</span></div>
+</div>
+</section>
+<section class="finale section-pad">
+<div class="finale-inner reveal">
+<p class="eyebrow">26 Augustus 2026</p>
+<div class="age-38">38</div>
+<h2>Gelukkige verjaarsdag, Mamma.</h2>
+<p>Ons sien jou. Ons waardeer jou. En ons is baie lief vir jou.</p>
+<button class="primary-btn" id="openLetter">Lees my brief <span>♥</span></button>
+</div>
+</section>
+</main>
+<dialog class="lightbox" id="lightbox"><button class="dialog-close" data-close-lightbox="">×</button><div class="lightbox-media" id="lightboxMedia"></div><p id="lightboxCaption"></p></dialog>
+<dialog class="letter-dialog" id="letterDialog"><div class="letter-sheet"><button class="dialog-close dark" data-close-letter="">×</button><p class="eyebrow">Vir Mamma</p><h2>Net nog een ding.</h2><div class="letter-body">
+<p>Ek wil hê jy moet weet dat ons sien hoe hard jy werk — nie net die ure nie, maar ook die ongemak en die dinge wat jy doelbewus dra omdat jy vir ons lief is.</p>
+<p>Ons sien hoe jou hande moeg raak van werk. Ons sien die sport, die papierwerk, die luister, die probleme wat jy rustig uitsorteer en die dae waarop jy waarskynlik self net wou rus.</p>
+<p>Vir elf jaar het jy my stoei ondersteun. Die laaste drie jaar het dit gereeld ’n uur stad toe en terug beteken, drie of vier keer per week. Voor dit was oefening naby die huis — maar jy was toe ook daar.</p>
+<p>Wat my die meeste tref, is hoe jy dinge hanteer wanneer dit skeefloop. Jy dink. Jy luister. Jy probeer reg doen. Jy maak nie almal rondom jou betaal vir die stres wat jy self dra nie.</p>
+<p>Nou gaan ek elektriese ingenieurswese studeer. Wanneer ek daardie nuwe lewe instap, wil ek hê jy moet weet daar is baie van jou daarin.</p>
+<p>Dankie dat jy Mamma is. Gelukkige 38ste verjaarsdag. Ek is baie lief vir jou.</p>
+</div><p class="signature">Liefde,<br/><strong>De Wet</strong></p></div></dialog>
+<script defer="" src="photos-1.js"></script>
+<script defer="" src="photos-2.js"></script>
+<script defer="" src="photos-3.js"></script>
+<script defer="" src="photos-4.js"></script>
+<script defer="" src="photos-5.js"></script>
+<script defer="" src="photos-6.js"></script>
+<script defer="" src="app.js"></script>
 </body>
 </html>
