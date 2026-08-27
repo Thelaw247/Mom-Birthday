@@ -1,143 +1,52 @@
 <!DOCTYPE html>
 <html lang="af">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#090b1a" />
-  <meta name="description" content="38 Jaar van Jou â€” â€™n verjaarsdaggeskenk vir Ma." />
-  <title>38 Jaar van Jou â€” Vir Ma</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="pride.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b1a">
+<meta name="color-scheme" content="dark">
+<title>38 Jaar van Jou â€” Vir Mamma</title>
+<meta name="description" content="â€™n Verjaarsdaggeskenk vir Dorothy â€” 38 jaar van liefde, familie en herinneringe.">
+<meta property="og:title" content="38 Jaar van Jou â€” Vir Mamma">
+<meta property="og:description" content="â€™n Klein webwerf vir â€™n baie groot mens.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="personal.css">
+<meta name="robots" content="noindex, nofollow, noarchive">
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="aurora aurora-a" aria-hidden="true"></div>
-  <div class="aurora aurora-b" aria-hidden="true"></div>
-  <div id="stars" class="stars" aria-hidden="true"></div>
-
-  <main>
-    <section id="intro" class="screen intro-screen active" aria-labelledby="intro-title">
-      <div class="intro-inner">
-        <p class="kicker reveal-now">26 Augustus 1988</p>
-        <h1 id="intro-title" class="display-title">Iets belangriks<br><span>het vandag begin.</span></h1>
-        <p class="intro-copy">Voor ons aangaan, moet ons net eers â€™n paar feite vasstel.</p>
-        <button id="startQuiz" class="primary-btn">Begin die baie wetenskaplike toets <span>â†’</span></button>
-      </div>
-    </section>
-
-    <section id="quiz" class="screen quiz-screen" aria-live="polite">
-      <div class="quiz-shell glass-card">
-        <div class="quiz-topline">
-          <span id="questionCounter">Vraag 1 van 10</span>
-          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
-        </div>
-        <div class="quiz-content">
-          <p class="tiny-label">Mamma se amptelike verjaarsdagtoets</p>
-          <h2 id="questionText">Hardwerkend Ã©n nogal ongelooflik?</h2>
-          <div id="answerZone" class="answer-zone">
-            <button id="yesBtn" class="answer-btn yes-btn">Ek is</button>
-            <button id="noBtn" class="answer-btn no-btn" aria-label="Ek is nie â€” maar hierdie knoppie gaan nie saamwerk nie">Ek is nie</button>
-          </div>
-          <p id="noMessage" class="no-message" aria-hidden="true"></p>
-        </div>
-      </div>
-
-      <div id="evidenceCard" class="evidence-card glass-card" aria-hidden="true">
-        <span id="evidenceTitle" class="evidence-label">Bewysstuk 01</span>
-        <p id="evidenceText"></p>
-        <button id="nextQuestion" class="text-btn">Volgende feit <span>â†’</span></button>
-      </div>
-    </section>
-
-    <section id="quizComplete" class="screen complete-screen">
-      <div class="complete-inner">
-        <span class="score-orbit">10 / 10</span>
-        <h2>Ons het dit bevestig.</h2>
-        <p>Dit blyk jy is eintlik nog meer ongelooflik as wat die toets kon meet.</p>
-        <button id="enterMemoryLane" class="primary-btn">Wys my die bewyse <span>â†“</span></button>
-      </div>
-    </section>
-
-    <section id="memoryLane" class="memory-lane" hidden>
-      <header class="hero-memory section-pad">
-        <div class="hero-copy scroll-reveal">
-          <p class="kicker">38 jaar van jou</p>
-          <h2>Hierdie een is vir <span>jou</span>, Mamma.</h2>
-          <p>Nie â€™n lys van prestasies nie. Nie â€™n perfekte storie nie. Net â€™n klomp oomblikke wat saam een ding sÃª: ons sien jou.</p>
-        </div>
-        <div class="hero-photo-stack" aria-label="Plek vir gunsteling familie-foto's">
-          <div class="photo-card photo-a placeholder-card"><span>Jou gunsteling foto hier</span></div>
-          <div class="photo-card photo-b placeholder-card"><span>â€™n Familie-oomblik</span></div>
-          <div class="photo-card photo-c placeholder-card"><span>Ma deur die jare</span></div>
-        </div>
-      </header>
-
-      <section class="chapter section-pad" data-chapter="0">
-        <div class="chapter-copy scroll-reveal">
-          <p class="chapter-eyebrow">Hoofstuk 01</p>
-          <h3>Voor ons almal</h3>
-          <p>Voor jy iemand se Ma was, was jy net jy. â€™n Hele mens met jou eie drome, grappies, vrese, planne en stories.</p>
-        </div>
-        <div class="year-stage scroll-reveal">
-          <span class="year">1988</span>
-          <span class="year-note">Die storie begin.</span>
-        </div>
-      </section>
-
-      <section class="family-constellation section-pad">
-        <div class="section-heading scroll-reveal">
-          <p class="chapter-eyebrow">Hoofstuk 02</p>
-          <h3>Toe word ons vier.</h3>
-          <p>Vier verskillende lewens. Een Ma wat op een of ander manier altyd die middelpunt bly.</p>
-        </div>
-        <div class="constellation-wrap scroll-reveal" id="constellation">
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
-          <button class="family-node mom-node" data-person="Ma">Ma</button>
-          <button class="family-node child-node node-1" data-person="Jy">Jy</button>
-          <button class="family-node child-node node-2" data-person="Joshua">Joshua</button>
-          <button class="family-node child-node node-3" data-person="Caleb">Caleb</button>
-          <button class="family-node child-node node-4" data-person="Richter">Richter</button>
-          <div id="constellationCaption" class="constellation-caption">Die middelpunt van ons klein heelal.</div>
-        </div>
-      </section>
-
-      <section class="migration section-pad">
-        <div class="section-heading scroll-reveal">
-          <p class="chapter-eyebrow">Hoofstuk 03</p>
-          <h3>Toe trek ons hele lewe oor â€™n oseaan.</h3>
-        </div>
-        <div class="journey-card glass-card scroll-reveal">
-          <div class="journey-labels">
-            <div><strong>Suid-Afrika</strong><span>Alles wat bekend was.</span></div>
-            <div class="journey-year">2020</div>
-            <div class="right"><strong>Kanada</strong><span>â€™n Nuwe begin.</span></div>
-          </div>
-          <div class="journey-line"><div class="journey-flight" id="journeyFlight">âœ¦</div></div>
-          <p>Dit was nie net â€™n vlug op â€™n kaart nie. Dit was â€™n hele lewe wat opgetel, gedra en weer neergesit moes word.</p>
-        </div>
-      </section>
-
-      <section class="casefile-section section-pad">
-        <div class="casefile-wrap glass-card scroll-reveal">
-          <div class="casefile-topline"><span>SAKELÃŠER 001</span><span>STATUS: OU NUUS</span></div>
-          <p class="chapter-eyebrow">Mamma was blykbaar nog altyd so</p>
-          <h3>Die melk-dief ondersoek.</h3>
-          <div class="casefile-grid">
-            <div><small>Ondersoeker</small><strong>Dorothy</strong></div>
-            <div><small>Voertuig</small><strong>Quad</strong></div>
-            <div><small>Verdagtes</small><strong>Melkdiewe op die plaas</strong></div>
-            <div><small>Motief</small><strong>â€œDis nie reg nie.â€</strong></div>
-          </div>
-          <p class="casefile-copy">Lank voor die droom van die RCMP en speurwerk, het jy klaar rondgery en probeer uitvind wie die melk steel. Party mense verander baie soos hulle grootword. Jy het blykbaar net meer amptelike planne gekry.</p>
-          <p class="casefile-end">Reg is reg. Verkeerd is verkeerd. En jy het nog altyd iets daaroor gedoen.</p>
-        </div>
-      </section>
-
-      <section class="unseen-work section-pad">
-        <div class="section-heading scroll-reveal">
-          <p class="chapter-eyebrow">Hoofstuk 04</p>
-          <h3>Die werk wat niemand altyd sien nie.</h3>
-        </div>
-        <div class="role-stack scroll-reveal" id="roleStack">
-          <span>Ma</span><span>Harde werker</span><span>Familie-taxi</span²È="25Ğ¹½œ••¸‘¥¹œ°5…µµ„¸ğ½ Èø(€€€€€€ñ‘¥Ø¥ô‰±•ÑÑ•É	½‘äˆ±…ÍÌô‰±•ÑÑ•Èµ‰½‘äˆøğ½‘¥Øø(€€€€€€ñÀ±…ÍÌô‰Í¥¹…ÑÕÉ”ˆù1¥•™‘”°ñ‰ÈøñÍÑÉ½¹œù©½Ô½Õ‘ÍÑ”ğ½ÍÑÉ½¹œøğ½Àø(€€€€ğ½‘¥Øø(€€ğ½‘¥…±½œø((€€ñÍÉ¥ÁĞ¥ô‰Í¥Ñ”µ½¹Ñ•¹ĞˆÑåÁ”ô‰…ÁÁ±¥…Ñ¥½¸½©Í½¸ˆùì‰Í¥Ñ”ˆéì‰Ñ¥Ñ±”ˆèˆÌà)……ÈÙ…¸)½Ôˆ°‰ÍÕ‰Ñ¥Ñ±”ˆè‰Y¥È5…µµ„ƒŠP€ÈØÕÕÍÑÕÌ€ÈÀÈØˆ°‰‰¥ÉÑ¡‘…äˆèˆÄäàà´Àà´ÈØˆ°‰…”ˆèÌáô°‰ÅÕ•ÍÑ¥½¹Ìˆémì‰ÅÕ•ÍÑ¥½¸ˆè‰!…É‘İ•É­•¹ƒ¥¸¹½…°½¹•±½½™±¥¬üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÄˆ°‰•Ù¥‘•¹”ˆè‰=¹Ì¡•Ğ¥¸€ÈÀÈÀÙ…¸MÕ¥µ™É¥­„¹„-…¹…‘„•ÑÉ•¬¸)ä¡•Ğ¹¥”¹•ĞÍ……µ•ÑÉ•¬¹¥”ƒŠP©ä¡•ĞÍ……´µ•Ğ½¹ÌÙ…¸Ù½½È…˜‰•¥¸¸)ä¡•Ğ•İ•É¬°Á±…¸•µ……¬°……¹•¡½Ô•¸Í•­•È•µ……¬½¹ÌÙ½•°Ù•¥±¥œ°Í•±™ÌÑ½”…±±•Ì½´½¹Ì¹ÕÕĞİ…Ì¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğ…±ÑåÙ¥Èµä­¥¹‘•ÉÌ½Á‘……œƒŠPÍ•±™Ìİ…¹¹••È•¬µ½•œ¥Ìüˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÈˆ°‰•Ù¥‘•¹”ˆè‰Y¥È•±˜©……È¡•Ğ”]•Ğ•ÍÑ½•¤¸)ä¡•Ğ¡½´•É••±ƒŠe¸ÕÕÈÍÑ…Ñ½”•Éä½´‘É¥”½˜Ù¥•È­••ÈƒŠe¸İ••¬Ñ”……¸½•™•¸°•¸©äİ…Ì‘……ÈÙ¥È‘¥”­½µÁ•Ñ¥Í¥•Ì¸5•ĞI¥¡Ñ•ÈÍ”¡½­­¥”İ…Ì©ä‘……È¸5•Ğ)½Í¡Õ„•¸…±•ˆÏŠe¸½½¬¸9½Ô‰•¥¸©äİ••ÈÍ½½ÉÑ•±å­”É¥ÑÑ”Ù¥È‘¥”Ñİ••±¥¹œ‘½•¸¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰¥”••¸İ…Ğ¡¥•É‘¥”¡•±”™…µ¥±¥”½À••¸½˜…¹‘•Èµ…¹¥•È……¸‘¥”…¹œ¡½Ôüˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÌˆ°‰•Ù¥‘•¹”ˆè‰Y¥•È­¥¹‘•ÉÌ¸Y¥•ÈÁ•ÉÍ½½¹±¥­¡•‘”¸Y¥•ÈÍÑ•±±”Á±…¹¹”¸¸••¸5„İ…Ğ½À••¸½˜…¹‘•Èµ…¹¥•È…±Ñåİ••Ğİ¥”İ……Èµ½•Ğİ••Ì°İ…ĞÙ½±•¹‘”•‰•ÕÈ°•¸İ¥”‘…±¬¹•ĞƒŠe¸‰¥•Ñ©¥”•­ÍÑÉ„½¹‘•ÉÍÑ•Õ¹¥¹œ¹½‘¥œ¡•Ğ¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰…ÁÁ•È•¹½•œ½´µä¡•±”±•İ”½½ÈƒŠe¸½Í•……¸Ñ”Í­Õ¥˜•¸Ù…¸Ù½½È…˜Ñ”‰•¥¸üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀĞˆ°‰•Ù¥‘•¹”ˆè‰MÕ¥µ™É¥­„İ…Ì‰•­•¹¸-…¹…‘„İ…ÌƒŠe¸¹Õİ”‰•¥¸¸)ä¡•Ğ‰…¥”Ù…¸‘¥”½¹Í•­•É¡•¥½À©½ÔÍ­½Õ•ÉÌ•‘É„Í½¹‘•È½´‘¥Ğ½¹ÌÏŠe¸Ñ”µ……¬¸)ä¡•Ğ•¡•±À½´ƒŠe¸¹Õİ”±•İ”¡¥•Èµ½½¹Ñ±¥¬Ñ”µ……¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğ½µÑÉ•¹Ğ•¹¥¥•ÑÌÙ¥Èµä­¥¹‘•ÉÌÍ…°‘½•¸üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÔˆ°‰•Ù¥‘•¹”ˆè‰……È¥Ì‘¥”É½½Ğ½Á½™™•É¥¹Ìİ…Ğ…±µ…°Í¥•¸ƒŠP•¸‘…¸‘¥”¡½¹‘•É‘”­±•¥¹Ñ©¥•Ìİ…Ğµ…­±¥¬Ù•É••Ğİ½É¸¥”Éå•Éä¸¥”İ…Ñå¸¥”­½Ì¸¥”­±•É”¸¥”±Õ¥ÍÑ•È¸¥”Á±…¸µ……¬¸¥”ƒŠa•¬Í…°‘¥ĞÕ¥ÑÍ½ÉÓŠd¸=¹Ì½¹Ñ¡½Ôµ••È‘……ÉÙ…¸…Ìİ…Ğ©ä‘¥¹¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰µÁ…Ñ¥•Ì°Í…•……É•¸¥•µ…¹İ…ĞÉ•Ñ¥œ½µ•”½½Èµ•¹Í”üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀØˆ°‰•Ù¥‘•¹”ˆè‰)äÙ½•°Í……´µ•Ğµ•¹Í”¸)ä±Õ¥ÍÑ•È¸)äÙ…Ğ…¹‘•Èµ•¹Í”Í”‰•­½µµ•É¹¥ÍÍ”Í½µÌÍ……´¡Õ¥ÌÑ½”¸)äÁÉ½‰••ÈÙ•ÉÍÑ……¸Ù½½É‘…Ğ©ä½½É‘••°¸¥Ì••¸Ù…¸‘¥”‘¥¹”İ…Ğ½¹Ì‰ä©½Ô•±••È¡•ĞÍ½¹‘•È‘…Ğ©ä½½¥Ğ‘……ÉÙ…¸ƒŠe¸±•Ì¡½•˜Ñ”µ……¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğµ••ÈÙ¥È¡¥•É‘¥”™…µ¥±¥”½Á•½™™•È¡•Ğ…Ìİ…Ğ•¬Í•±˜‰•Í•˜üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÀÜˆ°‰•Ù¥‘•¹”ˆè‰=¹ÌÍ¥•¸µ••È…Ì¹•Ğ‘¥”ÕÉ”İ…Ğ©äİ•É¬¸=¹ÌÍ¥•¸©½Ô¡…¹‘”¸=¹ÌÍ¥•¸‘¥”½¹•µ…¬•¸‘¥”‘¥¹”İ……Éµ•”©äÍ……µ±••˜¸=¹ÌÍ¥•¸‘…Ğ©äµ½•¥±¥­”‘¥¹”Ù¥È½¹Ì‘½•¸°•¸‘…¸ÍÑ••‘Ì¡Õ¥ÌÑ½”­½´•¸½¹Ìµ•Ğ±¥•™‘”°•‘Õ±•¸­…±µÑ”‰•¡…¹‘•°¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰MÑ•É­•È…Ìİ…Ğ•¬µåÍ•±˜­É•‘¥•ĞÙ½½È•”üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€Ààˆ°‰•Ù¥‘•¹”ˆè‰]…¹¹••È‘¥¹”Í­••™±½½À°¥Ì©ä•İ½½¹±¥¬‘¥”••¸İ…Ğ¹¥”½½ÉÉ•…­Í¥”Ñ½½¸¹¥”¸)ä‘¥¹¬¸)ä­å¬İ…Ğ•‘½•¸µ½•Ğİ½É¸¸‘…¸‘½•¸©ä‘¥Ğ¸)ä¡•ĞÙ¥È½¹Ì•İåÌ‘…Ğ­…±µÑ”½½¬ƒŠe¸Ù½É´Ù…¸­É…œ¥Ì¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰%•µ…¹İ…Ğ­¥¹‘•ÉÌÉ½½Ñ•µ……¬¡•Ğİ…Ğ•É••¥Ì½´¡Õ°•¥”Á…Ñ”‰•¥¸ÍÑ…Àüˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€Àäˆ°‰•Ù¥‘•¹”ˆè‰5……¹‘…œ‰•¥¸”]•Ğ•±•­ÑÉ¥•Í”¥¹•¹¥•ÕÉÍİ•Í”¸I¥¡Ñ•È°)½Í¡Õ„•¸…±•ˆ¡•Ğ¹½œ¡Õ°•¥”Á……¥”Ù½½È¡Õ±±”¸)ä¡•Ğ½¹Ì¹¥”¹•Ğ‰•Í­•É´¹¥”ì©ä¡•Ğ½¹Ì•±••È½´É•œÑ”‘½•¸°µ•¹Í”Ñ”É•ÍÁ•­Ñ••È•¸……¸Ñ”¡½Ôİ…¹¹••È‘¥¹”µ½•¥±¥¬É……¬¸‰ô±ì‰ÅÕ•ÍÑ¥½¸ˆè‰	•±…±¥¬°½½Éİ•±‘¥•¹‰…¥”±¥•™•£¨üˆ°‰•Ù¥‘•¹•Q¥Ñ±”ˆè‰	•İåÍÍÑÕ¬€ÄÀˆ°‰•Ù¥‘•¹”ˆè‰)„¸•ÕÈÙ¥•È­¥¹‘•ÉÌ¸•ÕÈƒŠe¸™…µ¥±¥”İ…Ğ…¹‘•ÉÌÍ½Ô±å¬Í½¹‘•È©½Ô‘……É¥¸¸¸‘•ÕÈ©½Ô½Õ‘ÍÑ”İ…ĞÙ…¹‘…œ¹•ĞÍ•­•Èİ¥°µ……¬©äİ••Ğè½¹ÌÍ¥•¸©½Ô¸=¹Ìİ……É‘••È©½Ô¸¸½¹Ì¥ÌÙ•ÉÍ­É¥­±¥¬±¥•˜Ù¥È©½Ô¸‰õt°‰¡…ÁÑ•ÉÌˆémì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÄˆ°‰Ñ¥Ñ±”ˆè‰Y½½È½¹Ì…±µ…°ˆ°‰‰½‘äˆè‰Y½½È©ä¥•µ…¹Í”5…µµ„İ…Ì°İ…Ì©ä¹•Ğ©ä¸ƒŠe¸!•±”µ•¹Ìµ•Ğ©½Ô•¥”‘É½µ”°É…ÁÁ¥•Ì°ÙÉ•Í”°Á±…¹¹”•¸ÍÑ½É¥•Ì¸!¥•É‘¥”‘…œ¡•Ğ¥¸€Ääàà‰•¥¸ƒŠP±…¹¬Ù½½É‘…Ğ½¹Ì•İ••Ğ¡•Ğ¡½”•±Õ­­¥œ½¹Ì••¹‘…œÍ½Ôİ••Ì½´©½ÔÑ”£¨¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÈˆ°‰Ñ¥Ñ±”ˆè‰Q½”İ½É½¹ÌÙ¥•Èˆ°‰‰½‘äˆè‰Y¥•È­¥¹‘•ÉÌ‰•Ñ•­•¸Ù¥•È±•İ•¹Ìİ…Ğ…±µ…°•±å¬•‰•ÕÈ¸)½Í¡Õ„¸…±•ˆ¸I¥¡Ñ•È¸¸•¬¸Y•ÉÍ­¥±±•¹‘”‘¥¹”°Ù•ÉÍ­¥±±•¹‘”Ñå”°Ù•ÉÍ­¥±±•¹‘”‰•¡½•™Ñ•ÌƒŠPµ……È‘¥•Í•±™‘”Ù•¥±¥”Á±•¬½´Ñ•ÉÕœÑ”­½´¹„Ñ½”è5…µµ„¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÌˆ°‰Ñ¥Ñ±”ˆè‰=½ÈƒŠe¸½Í•……¸ˆ°‰‰½‘äˆè‰%¸€ÈÀÈÀ¡•Ğ½¹ÌMÕ¥µ™É¥­„…Ñ•É•±……Ğ•¸-…¹…‘„½¹Ì¹Õİ”ÑÕ¥ÍÑ”•µ……¬¸¥Ğİ…Ì¹¥”¹•ĞƒŠe¸Ù±Õœ½ÀƒŠe¸­……ÉĞ¹¥”¸¥Ğİ…ÌƒŠe¸¡•±”±•İ”İ…Ğ½Á•Ñ•°°•‘É„•¸Ù…¸Ù½½È…˜•‰½Ôµ½•Ìİ½É¸)ä¡•Ğ•¡•±À½´‘¥ĞÙ¥È½¹Ìµ½½¹Ñ±¥¬Ñ”µ……¬¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀĞˆ°‰Ñ¥Ñ±”ˆè‰¥”İ•É¬İ…Ğ¹¥•µ…¹…±ÑåÍ¥•¸¹¥”ˆ°‰‰½‘äˆè‰¥”ÕÉ”‰ä‘¥”İ•É¬¥Ì¹•Ğ‘¥”‘••°İ…ĞƒŠe¸µ•¹Ì½ÀƒŠe¸­±½¬­…¸Í¥•¸¸¥”É•ÌƒŠP½¹Ñ¡½Ô°É§­°°±Õ¥ÍÑ•È°Éä°‰•­½µµ•È°½¹‘•ÉÍÑ•Õ¸•¸İ••ÈÁÉ½‰••ÈƒŠP¡•Ğ¹½½¥ĞƒŠe¸Ñå‘­……ÉĞ•¡…¹¥”¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀÔˆ°‰Ñ¥Ñ±”ˆè‰)ä¡•Ğ½Á•‘……œˆ°‰‰½‘äˆè‰	äÍÁ½ÉĞ¸	äÍ­½½°¸=À‘¥”‘…”İ…¹¹••È½¹Ì¥•ÑÌÉ••­Éä¡•Ğ•¸½À‘¥”‘…”İ…¹¹••È½¹Ì¹¥”¡•Ğ¹¥”¸)ä¡•Ğ¹¥”¹•ĞÙ…¸½¹Ì±•İ•¹Ì•İ••Ğ¹¥”¸)äİ…Ì‘••°‘……ÉÙ…¸¸‰ô±ì‰•å•‰É½Üˆè‰!½½™ÍÑÕ¬€ÀØˆ°‰Ñ¥Ñ±”ˆè‰¸¹½Ô°5……¹‘…œˆ°‰‰½‘äˆè‰Y¥È©…É”¡•Ğ©äÍ•­•È•µ……¬•¬­½´İ……È•¬µ½•Ğİ••ÌƒŠPÍ•±™ÌÑ½”‘¥ĞƒŠe¸ÕÕÈÍ”ÉäÍÑ…Ñ½”‰•Ñ•­•¸Ù¥ÈÍÑ½•¤¸9½Ô‰•¥¸•¬•±•­ÑÉ¥•Í”¥¹•¹¥•ÕÉÍİ•Í”¸¥ÌµäÙ½±•¹‘”¡½½™ÍÑÕ¬°µ……È‰…¥”Ù…¸İ…Ğ•¬Í……µÙ…Ğ°­½´Ù…¸©½Ô…˜¸‰õt°‰±•ÑÑ•Èˆéì‰Ñ¥Ñ±”ˆè‰9•Ğ¹½œ••¸‘¥¹œ°5…µµ„¸ˆ°‰‰½‘äˆél‰¬Ï¨‘¥ĞÍ•­•È¹¥”…±Ñå½•¹¥”°•¸‰•Í±¥Ì¹¥”•¹½•œ¹¥”¸5……ÈÙ…¹‘…œİ¥°•¬£¨©äµ½•Ğİ••Ğè½¹ÌÍ¥•¸©½Ô¸9¥”¹•Ğ‘¥”É½½Ğ‘¥¹”¹¥”¸=¹ÌÍ¥•¸½½¬‘¥”½¹•µ…¬°‘¥”µ½•¡•¥•¸‘¥”‘¥¹”İ……Éµ•”©äµ……ÈÍÑ¥±İ•œÍ……µ±••˜½µ‘…Ğ©ä±¥•˜¥ÌÙ¥È½¹Ì¸ˆ°‰=¹ÌÍ¥•¸¡½”¡…É©äİ•É¬¸=¹ÌÍ¥•¸©½Ô¡…¹‘”İ…Ğ‰•¥¸İåÌ¡½•Ù••°©…É”©ä…°…Ì¡……É­…ÁÁ•Èİ•É¬¸=¹ÌÍ¥•¸‘…Ğ©äÍÑ••‘Ì•±­”‘…œ……¹……¸¸¸İ…Ğµä‘¥”µ••ÍÑ”ÑÉ•˜°¥Ì‘…Ğ©ä¹¥”¡Õ¥ÌÑ½”­½´•¸‘¥Ğ½À½¹ÌÕ¥Ñ¡……°¹¥”¸)ä‰±ä5…µµ„¸)ä‰±ä­…±´¸)ä±Õ¥ÍÑ•È¸)ä¡•±À¸)ä‰•¡…¹‘•°½¹Ì½•¸ˆ°‰¬‘¥¹¬……¸…°‘¥”É¥ÑÑ”ÍÑ…Ñ½”Ù¥ÈÍÑ½•¤ƒŠPƒŠe¸ÕÕÈÍ½½¹Ñ½”°ƒŠe¸ÕÕÈÑ•ÉÕœ°‘É¥”½˜Ù¥•È­••ÈƒŠe¸İ••¬¸±˜©……È±…¹¬İ…Ì©ä‘……È¸)äİ…Ì‘……ÈÙ¥ÈI¥¡Ñ•ÈÍ”¡½­­¥”¸Y¥È)½Í¡Õ„•¸…±•ˆÏŠe¸¸¸¹½Ô‰•¥¸©äİ••ÈÙ…¸‘……É‘¥”É¥ÑÑ”Ù¥È‘¥”Ñİ••±¥¹œ‘½•¸¸=¹Ìİ••Ğ‘……É‘¥”ÕÉ”¡•Ğ¹¥”Ù…¹Í•±˜Ù•ÉÍ­å¸¹¥”¸)ä¡•Ğ¡Õ±±”Ù¥È½¹Ì•µ……¬¸ˆ°‰)ä¡•Ğ½¹Ì½½¬µ••È•±••È…Ì¹•Ğ½´¡…ÉÑ”İ•É¬¸ƒŠq5½•¹¥”±•±¥¬İ••Ì¹¥”»ŠtƒŠq5½•¹¥”©½¬¹¥”»Št5…¹¥•É”¸I•ÍÁ•¬¸=´É•œÑ”‘½•¸…°¥Ì‘¥Ğ¹¥”…±Ñå‘¥”µ…­±¥­”‘¥¹œ¹¥”¸¸İ…¹¹••È…±±•ÌÍ­••™±½½À°¡•Ğ©äÙ¥È½¹Ì•İåÌ¡½”ƒŠe¸µ•¹Ì©½Ô­½À¡½Ô°‘¥¹¬•¸‘¥”Ù½±•¹‘”É•Ñ”‘¥¹œ‘½•¸¸ˆ°‰5……¹‘…œ‰•¥¸•¬•±•­ÑÉ¥•Í”¥¹•¹¥•ÕÉÍİ•Í”¸¥Ğ……¸‘…±¬Í½½ÌµäÉ½½Ğ½½µ‰±¥¬±å¬°µ……È•¬¡•Ğ¹¥”…±±••¸Ñ½Ğ‰ä‘……É‘¥”‘•ÕÈ•­½´¹¥”¸±­”É¥Ğ°•±­”Ù½É´İ…Ğ•Ñ•­•¸¥Ì°•±­”İ•‘ÍÑÉå°•±­”•ÍÁÉ•¬•¸•±­”­••Èİ…Ğ©ä……¹•¡½Ô¡•Ğİ…¹¹••È©ä•¥¹Ñ±¥¬µ½•œİ…Ì°­½´Í……´µ•Ğµä¸ˆ°‰¸•¬¡½½À©ä½¹Ñ¡½Ô‘…Ğ©½ÔÍÑ½É¥”½½¬¹½œ¹¥”­±……È¥Ì¹¥”¸……È¥Ì¹½œ‘……É‘¥”I5@µ‘É½½´°‘……É‘¥”ÍÁ•ÕÉİ•É¬°•¸¹…ÑÕÕÉ±¥¬©½Ô‘É•¥•µ•¹Ğ‘…Ğ©ä	Ñ½”……¸Í½‘É„½¹Ì…±µ…°Õ¥Ğ‘¥”¡Õ¥Ì¥Ì¸)ä¡•ĞÍ½Ù••°Ù…¸©½Ô±•İ”¥¸½¹ÌÑ½•­½µÌ•Í¥Ğ¸¬¡½½À©ä­Éä½½¬©½Õ¹”¸ˆ°‰…¹­¥”°5…µµ„¸Y¥È‘¥”É½½Ğ‘¥¹”¸Y¥È‘¥”­±•¥¸‘¥¹”¸¸Ù¥È…°‘¥”µ½•¥±¥­”‘¥¹”İ……ÉÙ…¸©ä¹½½¥ĞƒŠe¸É½½ĞÍÑ½É¥”•µ……¬¡•Ğ¹¥”¸=¹ÌÍ¥•¸‘¥Ğ¸=¹ÌÍ¥•¸©½Ô¸¬¥Ì‰…¥”±¥•˜Ù¥È©½Ô¸‰uõôğ½ÍÉ¥ÁĞø(€€ñÍÉ¥ÁĞÍÉŒô‰…ÁÀ¹©Ìˆøğ½ÍÉ¥ÁĞø(ğ½‰½‘äø(ğ½¡Ñµ°ø(
+<div class="noise" aria-hidden="true"></div><div class="aurora aurora-a" aria-hidden="true"></div><div class="aurora aurora-b" aria-hidden="true"></div><div id="stars" class="stars" aria-hidden="true"></div>
+<main>
+<section id="intro" class="screen intro-screen active"><div class="intro-inner"><p class="kicker">26 Augustus 1988</p><h1 class="display-title">Iets belangriks<br><span>het vandag begin.</span></h1><p class="intro-copy">Voor ons aangaan, moet ons net eers â€™n paar feite vasstel.</p><button id="startQuiz" class="primary-btn">Begin die baie wetenskaplike toets <span>â†’</span></button></div></section>
+<section id="quiz" class="screen quiz-screen" aria-live="polite"><div class="quiz-shell glass-card"><div class="quiz-topline"><span id="questionCounter">Vraag 1 van 10</span><div class="progress-track"><div id="progressBar" class="progress-bar"></div></div></div><div class="quiz-content"><p class="tiny-label">Mamma se amptelike verjaarsdagtoets</p><h2 id="questionText">Hardwerkend Ã©n nogal ongelooflik?</h2><div id="answerZone" class="answer-zone"><button id="yesBtn" class="answer-btn yes-btn">Ek is</button><button id="noBtn" class="answer-btn no-btn">Ek is nie</button></div><p id="noMessage" class="no-message"></p></div></div><div id="evidenceCard" class="evidence-card glass-card"><span id="evidenceTitle" class="evidence-label">Bewysstuk 01</span><p id="evidenceText"></p><button id="nextQuestion" class="text-btn">Volgende feit â†’</button></div></section>
+<section id="quizComplete" class="screen complete-screen"><div class="complete-inner"><span class="score-orbit">10 / 10</span><h2>Ons het dit bevestig.</h2><p>Dit blyk jy is eintlik nog meer ongelooflik as wat die toets kon meet.</p><button id="enterMemoryLane" class="primary-btn">Wys my die bewyse â†“</button></div></section>
+<section id="memoryLane" class="memory-lane" hidden>
+<header class="hero-memory section-pad"><div class="hero-copy scroll-reveal"><p class="kicker">38 jaar van jou</p><h2>Hierdie een is vir <span>jou</span>, Mamma.</h2><p>Nie â€™n perfekte storie nie. Net regte oomblikke wat saam een ding sÃª: ons sien jou.</p></div><div class="hero-photo-stack"><div class="photo-card photo-a placeholder-card"><span>Richter & Mamma</span></div><div class="photo-card photo-b placeholder-card"><span>Ons familie</span></div><div class="photo-card photo-c placeholder-card"><span>Mamma</span></div></div></header>
+<section class="chapter section-pad"><div class="chapter-copy scroll-reveal"><p class="chapter-eyebrow">Hoofstuk 01</p><h3>Voor ons almal</h3><p>Voor jy Mamma was, was jy Dorothy â€” met jou eie drome, planne, reg-en-verkeerd, en blykbaar reeds â€™n sterk belangstelling in misdaadoplossing.</p></div><div class="year-stage scroll-reveal"><span class="year">1988</span><span class="year-note">Die storie begin.</span></div></section>
+<section class="family-constellation section-pad"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">Hoofstuk 02</p><h3>Toe word ons vier.</h3><p>De Wet. Richter. Joshua. Caleb. Vier seuns met een veilige middelpunt.</p></div><div class="constellation-wrap scroll-reveal" id="constellation"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><button class="family-node mom-node" data-person="Ma">Mamma</button><button class="family-node child-node node-1" data-person="Jy">De Wet</button><button class="family-node child-node node-2" data-person="Joshua">Joshua</button><button class="family-node child-node node-3" data-person="Caleb">Caleb</button><button class="family-node child-node node-4" data-person="Richter">Richter</button><div id="constellationCaption" class="constellation-caption">Die middelpunt van ons klein heelal.</div></div></section>
+<section class="migration section-pad"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">Hoofstuk 03</p><h3>Toe trek ons lewe oor â€™n oseaan.</h3></div><div class="journey-card glass-card scroll-reveal"><div class="journey-labels"><div><strong>Suid-Afrika</strong><span>Alles wat bekend was.</span></div><div class="journey-year">2020</div><div class="right"><strong>Kanada</strong><span>â€™n Nuwe begin.</span></div></div><div class="journey-line"><div class="journey-flight">âœ¦</div></div><p>Jy het nie net verhuis nie. Jy het gehelp om â€™n hele gesin se lewe weer aanmekaar te sit.</p></div></section>
+<section class="casefile-section section-pad"><div class="casefile-wrap glass-card scroll-reveal"><div class="casefile-topline"><span>SAKELÃŠER 001</span><span>STATUS: OU NUUS</span></div><p class="chapter-eyebrow">Mamma was blykbaar nog altyd so</p><h3>Die melk-dief ondersoek.</h3><div class="casefile-grid"><div><small>Ondersoeker</small><strong>Dorothy</strong></div><div><small>Voertuig</small><strong>Quad</strong></div><div><small>Verdagtes</small><strong>Melkdiewe op die plaas</strong></div><div><small>Motief</small><strong>â€œDis nie reg nie.â€</strong></div></div><p class="casefile-copy">Lank voor die RCMP-droom en speurwerk het jy reeds mense op â€™n quad agternagesit omdat hulle melk gesteel het.</p><p class="casefile-end">Party mense verander. Jy het net meer amptelike planne gekry.</p></div></section>
+<section class="unseen-work section-pad"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">Hoofstuk 04</p><h3>Die werk wat niemand altyd sien nie.</h3></div><div class="role-stack scroll-reveal"><span>Mamma</span><span>Haarkapper</span><span>Familie-taxi</span><span>Planmaker</span><span>Luisteraar</span><span>Aanmoediger</span><span>Probleemoplosser</span><span>Kalm kop</span></div></section>
+<section class="cost-section section-pad"><div class="cost-inner"><p class="chapter-eyebrow scroll-reveal">Die deel wat ons wel sien</p><h3 class="scroll-reveal">Ons sien wat dit jou kos.</h3><div class="cost-lines"><p class="scroll-reveal">Ons sien die lang dae.</p><p class="scroll-reveal">Ons sien die <strong>ongemak</strong>.</p><p class="scroll-reveal">Ons sien jou hande wat moeg word.</p><p class="scroll-reveal">En ons sien dat jy nog steeds huis toe kom en ons <strong>goed behandel</strong>.</p></div><div class="cost-photo scroll-reveal" aria-label="Dorothy saam met David en Ben by die werk"></div></div></section>
+<section class="showed-up section-pad"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">Hoofstuk 05</p><h3>Jy het opgedaag.</h3><p>â€™n Uur stad toe vir stoei. Drie of vier keer â€™n week. Elf jaar lank. Hokkie. Skool. Atletiek. En nou begin die ryery weer vir die tweeling.</p></div><div class="film-strip scroll-reveal"><div class="film-photo placeholder-card"><span>Sport</span></div><div class="film-photo placeholder-card tall"><span>By die werk</span></div><div class="film-photo placeholder-card"><span>Familie</span></div><div class="film-photo placeholder-card tall"><span>Jy en ek</span></div><div class="film-photo placeholder-card"><span>Generasies</span></div></div><div class="show-up-words scroll-reveal"><span>Na werk.</span><span>Wanneer jy moeg was.</span><span>Wanneer ons jou nodig gehad het.</span><strong>Jy was daar.</strong></div></section>
+<section class="values-section section-pad"><div class="values-inner"><p class="chapter-eyebrow scroll-reveal">Goed wat in ons koppe bly</p><h3 class="scroll-reveal">Wat Mamma ons geleer het.</h3><div class="values-grid"><div class="value-card scroll-reveal"><strong>â€œMoenie lelik wees nie.â€</strong><p>Hoe jy mense behandel, maak saak.</p></div><div class="value-card scroll-reveal"><strong>â€œMoenie jok nie.â€</strong><p>Die waarheid is nie onderhandelbaar nie.</p></div><div class="value-card scroll-reveal"><strong>Maniere.</strong><p>By die tafel en oral anders.</p></div><div class="value-card scroll-reveal"><strong>Respek.</strong><p>Vir almal wat ons ontmoet â€” nie net wanneer dit gerieflik is nie.</p></div></div></div></section>
+<section class="photo-memory section-pad"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">Onthou jy?</p><h3>Die fotoâ€™s sÃª die res.</h3><p>Regte mense. Regte dae. Die groot oomblikke en die gewone dae wat later die belangrikste word.</p></div><div class="memory-grid"><button class="memory-tile placeholder-card scroll-reveal"><span>Suid-Afrika</span></button><button class="memory-tile wide placeholder-card scroll-reveal"><span>Familie</span></button><button class="memory-tile tall placeholder-card scroll-reveal"><span>Sport</span></button><button class="memory-tile placeholder-card scroll-reveal"><span>Generasies</span></button><button class="memory-tile wide placeholder-card scroll-reveal"><span>Op pad</span></button><button class="memory-tile placeholder-card scroll-reveal"><span>Mamma</span></button></div></section>
+<section class="messages-section section-pad"><div class="messages-inner"><p class="chapter-eyebrow scroll-reveal">Vier stemme</p><h3 class="scroll-reveal">Van ons vir jou.</h3><div class="messages-grid"><div class="message-card scroll-reveal"><strong>De Wet</strong><p>Ons sien hoe hard jy werk en wat jy doelbewus verdra vir die mense vir wie jy lief is. Ek dra baie van wat jy my geleer het saam universiteit toe.</p><small>Jou oudste</small></div><div class="message-card scroll-reveal"><strong>Richter</strong><p>Ek waardeer hoe vriendelik en goed jy met my is.</p><small>Richter</small></div><div class="message-card scroll-reveal"><strong>Joshua</strong><p>Ek waardeer dat jy stadig kwaad word, al my inskrywingsvorms teken en luister wanneer daar â€™n probleem is.</p><small>Joshua</small></div><div class="message-card scroll-reveal"><strong>Caleb</strong><p>Jy is die beste, gaafste en mooiste Mamma in die wÃªreld.</p><small>Caleb</small></div></div></div></section>
+<section class="pride-section section-pad"><div class="pride-inner"><p class="chapter-eyebrow scroll-reveal">Die deel wat jy dalk nie altyd sien nie</p><h3 class="scroll-reveal">Kyk wat het jy gebou.</h3><div class="pride-names scroll-reveal"><span>De Wet</span><span>Richter</span><span>Joshua</span><span>Caleb</span></div><div class="pride-lines"><p class="scroll-reveal">Elke keer wat ons aanhou wanneer iets moeilik raak.</p><p class="scroll-reveal">Elke keer wat ons vir iemand opdaag.</p><p class="scroll-reveal">Elke keer wat ons probeer om die regte ding te doen.</p></div><div class="pride-pivot scroll-reveal">Daar is iets van <em>jou</em> daarin.</div><div class="pride-university glass-card scroll-reveal"><p>Wanneer ek by universiteit instap om elektriese ingenieurswese te studeer, gaan dit lyk soos my groot oomblik.</p><strong>Maar ek het nie alleen tot by daardie deur gekom nie.</strong><p>Daar is elf jaar se ritte, raad, sport, werk en liefde wat saam met my deur daardie deur gaan.</p></div></div></section>
+<section class="future-section section-pad"><div class="future-inner"><div class="future-card glass-card scroll-reveal"><p class="chapter-eyebrow">En Mamma se storie?</p><h4>Jy is nog lank nie klaar nie.</h4><p class="future-copy">Ons hoop jy kry jou kans met die RCMP en die speurwerk wat jou nog altyd trek. En ja â€” dalk trek jy regtig eendag BC toe naby Oom David wanneer ons almal uit die huis is.</p><div class="future-dreams"><span>RCMP</span><span>Speurwerk</span><span>BC?</span><span>Jou eie volgende hoofstuk</span></div></div></div></section>
+<section class="university section-pad"><div class="university-sticky"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">Hoofstuk 06</p><h3>En nou, universiteit.</h3></div><div class="university-lines"><p class="scroll-reveal">Vir jare het jy my gekry waar ek moes wees.</p><p class="scroll-reveal">Oefeninge. Skool. Wedstryde. Huis.</p><p class="scroll-reveal">Nou gaan ek â€™n bietjie verder.</p><p class="scroll-reveal big-line">Elektriese ingenieurswese.</p><p class="scroll-reveal final-line">Jy het my gehelp om gereed te word.</p></div></div></section>
+<section class="avalanche section-pad" id="avalanche"><div class="section-heading scroll-reveal"><p class="chapter-eyebrow">En as ons alles bymekaar sit...</p><h3>Dis â€™n hele lewe vol bewyse.</h3></div><div class="avalanche-wall" id="avalancheWall"></div><button id="openLetter" class="envelope-btn glass-card scroll-reveal"><span class="envelope-icon">âœ‰</span><span>Daar is nog een ding.</span><small>Hou hier om oop te maak</small></button></section>
+<section class="finale section-pad"><div class="finale-inner scroll-reveal"><p class="kicker">26 Augustus 2026</p><div class="age-counter">38</div><h3>Gelukkige 38ste verjaarsdag, Mamma.</h3><p>Ons is liewer vir jou as wat een webblad ooit sal kan verduidelik.</p><div class="heart-mark">â™¥</div></div></section>
+</section></main>
+<dialog id="memoryDialog" class="memory-dialog"><button class="dialog-close" data-close-dialog>Ã—</button><div class="dialog-photo placeholder-card"><span id="dialogCaption">Herinnering</span></div></dialog>
+<dialog id="letterDialog" class="letter-dialog"><div class="letter-sheet"><button class="dialog-close dark" data-close-letter>Ã—</button><p class="letter-kicker">Vir Mamma</p><h2>Net nog een ding, Mamma.</h2><div id="letterBody" class="letter-body"></div><p class="signature">Liefde,<br><strong>De Wet</strong></p></div></dialog>
+<script id="site-content" type="application/json">{"site":{"title":"38 Jaar van Jou","subtitle":"Vir Mamma â€” 26 Augustus 2026","birthday":"1988-08-26","age":38},"questions":[{"question":"Hardwerkend Ã©n nogal ongelooflik?","evidenceTitle":"Bewysstuk 01","evidence":"Ons het in 2020 van Suid-Afrika na Kanada getrek. Jy het saam met ons van voor af begin, aangehou werk en seker gemaak ons voel veilig terwyl alles nuut was."},{"question":"Iemand wat altyd vir my kinders opdaag â€” selfs wanneer ek moeg is?","evidenceTitle":"Bewysstuk 02","evidence":"Vir elf jaar het jy De Wet gereeld â€™n uur stad toe gery vir stoei, drie of vier keer â€™n week. Jy was by Richter se hokkie, by Joshua en Caleb sâ€™n, en nou begin jy weer daardie soort ritte vir die tweeling doen."},{"question":"Die een wat hierdie hele familie op een of ander manier aan die gang hou?","evidenceTitle":"Bewysstuk 03","evidence":"Vier seuns. Vier persoonlikhede. Vier stelle planne. En een Mamma wat gewoonlik weet wie waar moet wees, wat volgende moet gebeur en wie ekstra hulp nodig het."},{"question":"Dapper genoeg om my hele lewe oor â€™n oseaan te skuif en van voor af te begin?","evidenceTitle":"Bewysstuk 04","evidence":"Suid-Afrika was bekend. Kanada was nuut. Jy het baie onsekerheid gedra sonder om dit ons las te maak."},{"question":"Iemand wat omtrent enigiets vir my kinders sal doen?","evidenceTitle":"Bewysstuk 05","evidence":"Die ryery. Die wagtyd. Die werk. Die kos. Die papierwerk. Die luister. Die plan maak. Die ongemak van moeilike dinge doen vir mense vir wie jy lief is. Ons sien dit."},{"question":"Liefdevol, kalm en iemand wat eers dink voordat ek reageer?","evidenceTitle":"Bewysstuk 06","evidence":"Wanneer dinge skeefloop, verloor jy nie sommer jou kop nie. Jy dink, kyk wat gedoen moet word en beweeg dan vorentoe. Daardie kalmte het vir ons gewys dat krag nie altyd hard hoef te wees nie."},{"question":"Iemand wat meer vir hierdie familie opoffer as wat ek self soms besef?","evidenceTitle":"Bewysstuk 07","evidence":"Selfs jou hande wys hoeveel jy werk. Jy is elke dag â€™n haarkapper, en wanneer jou liggaam moeg raak, hou jy steeds aan en kom huis toe sonder om almal anders daarvoor te straf."},{"question":"Gedissiplineerd, konsekwent en sterk wanneer dinge moeilik raak?","evidenceTitle":"Bewysstuk 08","evidence":"Jy hou by wat reg is, staan op vir mense, hou van goeie maniere en respek, en jy bly konsekwent selfs wanneer dit makliker sou wees om nie te wees nie."},{"question":"Iemand wat kinders grootgemaak het wat gereed is om hul eie pad te begin stap?","evidenceTitle":"Bewysstuk 09","evidence":"De Wet gaan nou elektriese ingenieurswese studeer. Dis sy volgende hoofstuk, maar dit dra jare se ritte, ondersteuning, raad en jou geloof in hom saam."},{"question":"Belaglik, oorweldigend baie liefgehÃª?","evidenceTitle":"Bewysstuk 10","evidence":"Ja. Deur De Wet, Richter, Joshua en Caleb. Ons sien jou. Ons sien die harde goed ook. En ons is baie lief vir jou."}],"letter":{"title":"Net nog een ding, Mamma.","body":["Ek wil hÃª jy moet weet dat ons sien hoe hard jy werk â€” nie net die ure nie, maar ook die ongemak en die dinge wat jy doelbewus dra omdat jy vir ons lief is.","Ons sien hoe jou hande moeg raak van werk. Ons sien die ryery, die wagtyd, die papierwerk, die sport, die probleme wat jy rustig uitsorteer en die dae waarop jy waarskynlik self net wou rus.","Wat my die meeste tref, is dat jy nie al daardie moeite gebruik as â€™n rede om sleg met ons te wees nie. Wanneer dinge skeefloop, bly jy meestal kalm. Jy dink. Jy luister. Jy probeer reg doen. En jy behandel ons nog steeds goed.","Elf jaar se stoei het beteken dat jy my ontelbare kere â€™n uur stad toe en terug gery het, drie of vier keer â€™n week. Jy was daar. Jy het ook by Richter se hokkie opgedaag, by die tweeling sâ€™n, en nou begin jy daardie ryery weer vir hulle doen.","Nou gaan ek elektriese ingenieurswese studeer. Wanneer ek daardie nuwe lewe instap, wil ek hÃª jy moet weet dat dit nie net my prestasie is nie. Daar is baie van jou daarin.","Ek hoop jy kry ook jou volgende hoofstuk: die RCMP, speurwerk, dalk eendag BC naby Oom David soos jy altyd grappenderwys sÃª. Jy is nog lank nie klaar om jou eie storie te leef nie.","Dankie dat jy Mamma is. Ons sien jou. Gelukkige 38ste verjaarsdag. Ek is baie lief vir jou."]}}</script><script src="photo-data/kiss.js"></script>
+<script src="photo-data/family.js"></script>
+<script src="photo-data/mom.js"></script>
+<script src="photo-data/track.js"></script>
+<script src="photo-data/work.js"></script>
+<script src="photo-data/extended.js"></script>
+<script src="photo-data/grandpa.js"></script>
+<script src="app.js" defer></script>
+</body></html>
