@@ -1,17 +1,17 @@
 (() => {
   const $=(s,r=document)=>r.querySelector(s); const $$=(s,r=document)=>[...r.querySelectorAll(s)];
-  const data=JSON.parse($('#site-content').textContent); const P=window.__PHOTO_DATA__;
+  const data=JSON.parse($('#site-content').textContent); const P=window.__PHOTO_DATA__||{};
   const photoLibrary=[
     {src:P.kiss,label:'Richter & Mamma',caption:'Richter gee vir Mamma ’n soen.'},
     {src:P.family,label:'Ons familie',caption:'Mamma saam met De Wet, Richter, Joshua en Caleb.'},
     {src:P.mom,label:'Mamma',caption:'Dorothy teen sononder — stil, sterk en mooi.'},
-    {src:P.track,label:'Jy het opgedaag',caption:'Mamma met De Wet by atletiek.'},
-    {src:P.work,label:'Werk en familie',caption:'Mamma saam met Oom David en Oupa Ben by die werk.'},
-    {src:P.extended,label:'Waar jy vandaan kom',caption:'Bennie, Stefan, Oupa Ben, Ouma Annette, Oom David en Mamma.'},
-    {src:P.grandpa,label:'Dogter en pa',caption:'Mamma en Oupa Ben.'},
+    {src:P.family,label:'Jy het opgedaag',caption:'Al die sport, ritte en dae waarop Mamma opgedaag het.'},
+    {src:P.mom,label:'Die werk wat ons sien',caption:'Die persoon agter al die werk, liefde en kalmte.'},
+    {src:P.family,label:'Waar jy vandaan kom',caption:'Familie — die mense voor ons en die mense wat jy grootgemaak het.'},
+    {src:P.kiss,label:'Klein oomblikke',caption:'Die klein oomblikke wat uiteindelik die groot herinneringe word.'}
   ];
   const slotPhotos=[photoLibrary[0],photoLibrary[1],photoLibrary[2],photoLibrary[3],photoLibrary[4],photoLibrary[5],photoLibrary[6],photoLibrary[1]];
-  const memoryPhotos=[photoLibrary[5],photoLibrary[6],photoLibrary[3],photoLibrary[1],photoLibrary[0],photoLibrary[2]];
+  const memoryPhotos=[photoLibrary[0],photoLibrary[5],photoLibrary[3],photoLibrary[1],photoLibrary[6],photoLibrary[2]];
 
   const stars=$('#stars'); if(stars) for(let i=0;i<38;i++){const x=document.createElement('span');x.className='star';x.style.left=Math.random()*100+'%';x.style.top=Math.random()*100+'%';x.style.animationDelay=Math.random()*3+'s';stars.appendChild(x)}
 
@@ -31,10 +31,10 @@
   let obs; function initReveal(){obs?.disconnect();obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');if(!e.target.matches('.university-sticky'))obs.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5%'});$$('.scroll-reveal,.journey-card,.role-stack,.avalanche').forEach(x=>obs.observe(x))}
   const cc=$('#constellationCaption');const caps={Ma:'Die middelpunt van ons klein heelal.',Jy:'De Wet — jou oudste, nou op pad na elektriese ingenieurswese.',Joshua:'Joshua — hy waardeer hoe jy luister en stadig kwaad word.',Caleb:'Caleb — hy sê jy is die beste, gaafste en mooiste Mamma in die wêreld.',Richter:'Richter — hy waardeer hoe vriendelik en goed jy met hom is.'};$$('.family-node').forEach(n=>n.addEventListener('click',()=>cc.textContent=caps[n.dataset.person]));
 
-  function apply(el,p){if(!el||!p?.src)return;el.style.backgroundImage=`linear-gradient(180deg,transparent 48%,rgba(4,5,15,.7)),url("${p.src}")`;el.style.backgroundSize='cover';el.style.backgroundPosition='center';el.classList.add('has-photo');const s=$('span',el);if(s)s.textContent=p.label;el.dataset.caption=p.caption;el.dataset.key=photoLibrary.indexOf(p)}
+  function apply(el,p){if(!el||!p?.src)return;el.style.backgroundImage=`linear-gradient(180deg,transparent 48%,rgba(4,5,15,.7)),url("${p.src}")`;el.style.backgroundSize='cover';el.style.backgroundPosition='center';el.classList.add('has-photo');const s=$('span',el);if(s)s.textContent=p.label;el.dataset.caption=p.caption}
   const slots=$$('.hero-photo-stack .placeholder-card,.film-strip .placeholder-card');slots.forEach((el,i)=>apply(el,slotPhotos[i%slotPhotos.length]));$$('.memory-tile').forEach((el,i)=>apply(el,memoryPhotos[i]));
-  const cost=$('.cost-photo');if(cost&&P.work)cost.style.backgroundImage=`url("${P.work}")`;
-  const dlg=$('#memoryDialog'),dlgPhoto=$('.dialog-photo'),dlgCap=$('#dialogCaption');function openPhoto(p){if(!p)return;apply(dlgPhoto,{...p,label:p.caption});dlgPhoto.style.backgroundSize='contain';dlgPhoto.style.backgroundRepeat='no-repeat';dlgCap.textContent=p.caption;dlg.showModal?.()}
+  const cost=$('.cost-photo');if(cost&&P.mom){cost.style.backgroundImage=`linear-gradient(180deg,rgba(6,8,22,.06),rgba(6,8,22,.3)),url("${P.mom}")`;cost.style.backgroundSize='cover';cost.style.backgroundPosition='center'}
+  const dlg=$('#memoryDialog'),dlgPhoto=$('.dialog-photo'),dlgCap=$('#dialogCaption');function openPhoto(p){if(!p)return;apply(dlgPhoto,{...p,label:p.caption});dlgPhoto.style.backgroundSize='contain';dlgPhoto.style.backgroundRepeat='no-repeat';dlgPhoto.style.backgroundPosition='center';dlgCap.textContent=p.caption;dlg.showModal?.()}
   [...slots,...$$('.memory-tile')].forEach(el=>{el.style.cursor='zoom-in';el.addEventListener('click',()=>{const pool=el.matches('.memory-tile')?memoryPhotos:slotPhotos;const list=el.matches('.memory-tile')?$$('.memory-tile'):slots;openPhoto(pool[list.indexOf(el)%pool.length])})});$('[data-close-dialog]')?.addEventListener('click',()=>dlg.close());dlg?.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 
   const wall=$('#avalancheWall');if(wall)for(let i=0;i<24;i++){const p=photoLibrary[i%photoLibrary.length],c=document.createElement('div');c.className='avalanche-card';c.style.left=Math.random()*90+'%';c.style.top=Math.random()*78+'%';c.style.setProperty('--r',(-12+Math.random()*24)+'deg');c.style.backgroundImage=`linear-gradient(180deg,transparent,rgba(4,5,15,.55)),url("${p.src}")`;c.style.backgroundSize='cover';c.style.backgroundPosition='center';wall.appendChild(c)}
